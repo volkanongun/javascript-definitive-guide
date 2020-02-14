@@ -49,16 +49,19 @@
 			// an annual rate to a monthly rate. Convert payment period in years
 			// to the number of monthly payments.
 			var principal = parseFloat(amount.value);
-			var interest = parseFloat(apr.value) / 100 / 12; var payments = parseFloat(years.value) * 12;
+			var interest = parseFloat(apr.value) / 100 / 12; 
+			var payments = parseFloat(years.value) * 12;
 			// Now compute the monthly payment figure.
 			var x = Math.pow(1 + interest, payments); // Math.pow() computes powers 
 			var monthly = (principal*x*interest)/(x-1);
 			// If the result is a finite number, the user's input was good and // we have meaningful results to display
 			if (isFinite(monthly)) {
-				// Fill in the output fields, rounding to 2 decimal places payment.innerHTML = monthly.toFixed(2);
+				// Fill in the output fields, rounding to 2 decimal places 
+				payment.innerHTML = monthly.toFixed(2);
 				total.innerHTML = (monthly * payments).toFixed(2); 
 				totalinterest.innerHTML = ((monthly*payments)-principal).toFixed(2);
-				// Save the user's input so we can restore it the next time they visit save(amount.value, apr.value, years.value, zipcode.value);
+				// Save the user's input so we can restore it the next time they visit 
+				save(amount.value, apr.value, years.value, zipcode.value);
 				// Advertise: find and display local lenders, but ignore network errors 
 				try { 
 				// Catch any errors that occur within these curly braces
@@ -90,7 +93,23 @@
 		}
 
 		window.onload = function() {
-		// If the browser supports localStorage and we have some stored data 
+
+				alert("loaded")
+				var images = document.getElementsByTagName("img");
+				
+				for (var i = 0; i < images.length; i++) {
+					var image = images[i];
+					if(image.addEventListener)
+						image.addEventListener("click", hide, false);
+					else
+						image.attachEvent("onclick", hide)
+				}
+
+				function hide(e){
+					e.target.style.display = "none";
+				}
+
+			// If the browser supports localStorage and we have some stored data 
 			if (window.localStorage && localStorage.loan_amount) {
 				document.getElementById("amount").value = localStorage.loan_amount; 
 				document.getElementById("apr").value = localStorage.loan_apr; 
