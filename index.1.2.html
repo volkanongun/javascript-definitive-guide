@@ -115,6 +115,7 @@
 				document.getElementById("apr").value = localStorage.loan_apr; 
 				document.getElementById("years").value = localStorage.loan_years; 
 				document.getElementById("zipcode").value = localStorage.loan_zipcode;
+				chart()
 			}
 		};
 
@@ -152,6 +153,7 @@
 		}
 
 		function chart(principal, interest, monthly, payments) {
+
 			var graph = document.getElementById("graph"); // Get the <canvas> tag 
 			graph.width = graph.width; // Magic to clear and reset the canvas element
 			// If we're called with no arguments, or if this browser does not support 
