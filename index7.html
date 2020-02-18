@@ -7,7 +7,109 @@
 <body>
 	<script>
 	
+		// var o = {x:5, y:7}
+
+		// function classof(o) {
+		// 	if (o === null) return "Null";
+		// 	if (o === undefined) return "Undefined";
+		// 	return Object.prototype.toString.call(o).slice(8,-1);
+		// }
+
+		// var keys = Object.keys(o); // Get an array of property names for object o 
+		// var values = [] // Store matching property values in this array 
+
+		// for(var i = 0; i < keys.length; i++) { // For each index in the array
+		// 	var key = keys[i]; // Get the key at that index
+		// 	values[i] = o[key]; // Store the value in the values array 
+		// }
+
+		// console.log(keys, values);
+		// console.log(classof(keys), classof(values))
+
+		////////////////////////
+
+		// var table = new Array(10); // 10 rows of the table 
+
+		// for(var i = 0; i < table.length; i++)
+		// 	table[i] = new Array(10); 
 		
+		// for(var row = 0; row < table.length; row++) {
+		// 	for(col = 0; col < table[row].length; col++) { 
+		// 		table[row][col] = row*col;
+		// 	}
+		// }
+		
+		// var product = table[5][7]; // 35
+		// console.log(product)
+
+		// console.log(table.join());
+
+		// table.reverse()
+
+		// console.log(table);
+
+		// for(var row = 0; row < table.length; row++) {
+		// 	table[row].reverse();
+		// }
+
+		// console.log(table);
+
+		////////////////////////
+
+		// var a = [33, 4, 1111, 222];
+		// a.sort();
+		// console.log(a);
+
+		////////////////////////
+
+		// var data = [1,2,3,4,5];
+
+		// var sum = 0;
+		// data.forEach(function(value) { 
+		// 	console.log(value);
+		// 	sum += value; 
+		// 	console.log(sum);
+		// });
+
+		// console.log(sum)
+
+		////////////////////////
+
+		// function foreach(a,f,t) { 
+		// 	try { a.forEach(f,t); }
+		// 	catch(e) {
+		// 		if (e === foreach.break) return; else throw e;
+		// 	}
+		// }
+	
+		// foreach.break = new Error("StopIteration");
+		
+		////////////////////////
+
+		// function findall(a, x) {
+		// 	var results = [], len = a.length,
+		// 	pos = 0; 
+
+		// 	while(pos < len) {
+		// 		pos = a.indexOf(x, pos); 
+		// 		if (pos === -1) break; 
+		// 		results.push(pos);
+		// 		pos = pos + 1;
+		// 	}
+		// 	return results;
+		// }
+		
+		// console.log(findall([1,2,3,4,4,4,4,4,5,6,7,8]), 4)
+		
+		////////////////////////
+
+		// s = "JavaScript" 
+		// Array.prototype.join.call(s, " ") 
+		// let m = Array.prototype.filter.call(s, function(x) {
+		// 	return x.match(/[^aeiou]/);
+		// }).join("")
+
+		// console.log(m);
 
 	</script>
 </body>
