@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5</title>
+</head>
+<body>
+	<script>
+		// var count = 0;
+
+		// while (count < 10) {
+		// 	console.log(count);
+		// 	count++;
+		// }
+
+		///////////////////////////////
+
+		// function printArray(a) {
+		// 	var len = a.length, i = 0; 
+		// 	if (len == 0)
+		// 		console.log("Empty Array"); else {
+		// 		do { 
+		// 			console.log(a[i]);
+		// 		} while (++i < len); }
+		// }
+
+		// printArray(["a","b","c"])
+
+		///////////////////////////////
+
+		var o = {x:1, y:2, z:3};
+		var a = [], i = 0;
+		for(a[i++] in o) /* empty */;
+			console.log(a)
+
+		///////////////////////////////
+
+		try {
+		// Ask the user to enter a number
+			var n = Number(prompt("Please enter a positive integer", ""));
+		// Compute the factorial of the number, assuming the input is valid 
+			var f = factorial(n);
+		// Display the result
+			alert(n + "! = " + f);
+		}
+		catch (ex) { // If the user's input was not valid, we end up here
+			alert(ex); // Tell the user what the error is 
+		}
+
+		///////////////////////////////
+
+		var o = { x: 1, y: 2 }
+
+		for(var p in o) 
+			console.log(p,o[p]);
+	</script>
+</body>
+</html>
