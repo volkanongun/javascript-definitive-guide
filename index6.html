@@ -27,12 +27,89 @@
 
 		///////////////////////////
 
-		var o = {x:1, y:2, z:3}; 
-		o.propertyIsEnumerable("toString");
+		// var o = {x:1, y:2, z:3}; 
+		// o.propertyIsEnumerable("toString");
 		
-		for(p in o)
-			console.log(p, o[p]);
+		// for(p in o)
+		// 	console.log(p, o[p]);
 
+		///////////////////////////
+
+		// var p = {
+		// 	x: 1.0,
+		// 	y: 1.0,
+
+		// 	get r() { return Math.sqrt(this.x*this.x + this.y*this.y); }, 
+		// 	set r(newvalue) {
+		// 		var oldvalue = Math.sqrt(this.x*this.x + this.y*this.y); 
+		// 		var ratio = newvalue/oldvalue;
+		// 		this.x *= ratio;
+		// 		this.y *= ratio;
+		// 	},
+		// 	get theta() { 
+		// 		return Math.atan2(this.y, this.x); 
+		// 	}
+		// };
+
+		// console.log(p.r);
+
+		///////////////////////////
+
+		// "use strict";
+		// var o = {};
+
+		// Object.defineProperty(o, "x", { 
+		// 	value : 1,
+		// 	writable: true, 
+		// 	enumerable: false, 
+		// 	configurable: true});
+
+		// console.log(o.x, Object.keys(o));
+
+		// Object.defineProperty(o, "x", { writable: false });
+
+		// Object.defineProperty(o, "x", { value: 2 });
+
+		// console.log(o.x, Object.keys(o));
+
+		// Object.defineProperty(o, "x", { get: function() { return 0; } });
+		
+		// console.log(o.x, Object.keys(o));
+		
+		///////////////////////////
+
+		// var p = Object.defineProperties({}, {
+		// 	x: { value: 1, writable: true, enumerable:true, configurable:true }, 
+		// 	y: { value: 1, writable: true, enumerable:true, configurable:true }, 
+		// 	r: {
+		// 		get: function() { 
+		// 			return Math.sqrt(this.x*this.x + this.y*this.y) }, enumerable:true, configurable:true
+		// 	} 
+		// });
+
+		// console.log(p)
+
+		///////////////////////////
+
+		// var p = {x:1};
+		// var o = Object.create(p);
+		// console.log(p.isPrototypeOf(o));
+		// console.log(Object.prototype.isPrototypeOf(o));
+
+		///////////////////////////
+
+		// var o = { x: 1, y: 2};
+
+		// Object.freeze(o)
+
+		///////////////////////////
+
+		o = {x:1, y:{z:[false,null,""]}};
+		s = JSON.stringify(o);
+		console.log(s)
+
+		p = JSON.parse(s);
+		console.log(p)
 	</script>
 </body>
 </html>
