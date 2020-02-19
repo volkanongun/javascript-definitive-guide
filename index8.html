@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>8</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<header id="myid5"></header>
+	<header id="myid2"></header>
+	<header id="myid1"></header>
+	<header id="myid4"></header>
+
+	<script>
+		
+		// recursive factorial function
+		// function factorial(x) {
+		// 	if (x <= 1) return 1;
+		// 	return x * factorial(x-1); 
+		// }
+
+		// console.log(factorial(5));
+		
+		/////////////////////////
+
+		// var calculator = { // An object literal 
+		// 	operand1: 1,
+		// 	operand2: 1,
+		// 	add: function() {
+		// 		// Note the use of the this keyword to refer to this object.
+		// 		this.result = this.operand1 + this.operand2; 
+		// 	}
+		// };
+
+		// calculator.add(); // A method invocation to compute 1+1. 
+		// console.log(calculator.result);
+
+		/////////////////////////
+
+		// console.log($("header").map(function() { return this.id }).get().sort());
+
+		/////////////////////////
+
+		// var o = {
+		// 	m: function() {
+		// 		var self = this; 
+		// 		console.log(this === o); 
+		// 		f();
+		// 		function f() { 
+		// 			console.log(this === o); 
+		// 			console.log(self === o);
+		// 		} 
+		// 	}
+		// }
+		// o.m();
+
+		/////////////////////////
+
+		// var o = { x: 1, y:2, z:3 }
+		// var p = { a: 4, b:5, c:6 }
+
+		// function getPropertyNames(o, /* optional */ a) {
+		// 	a = a || []; // If undefined, use a new array 
+			
+		// 	for(var property in o) 
+		// 		a.push(property);
+
+		// 	return a;
+		// }
+
+		// var a = getPropertyNames(o);
+		// console.log(getPropertyNames(p,a))
+
+		/////////////////////////
+
+		// function f(x, y, z) {
+		// 	// First, verify that the right number of arguments was passed 
+		// 	if (arguments.length != 3) {
+		// 		throw new Error("function f called with " + arguments.length + " arguments, but it expects 3 arguments.");
+		// 	}
+		// 	// Now do the actual function...
+		// }
+
+		// f(1)
+
+		/////////////////////////
+
+		// function max(/* ... */) {
+		// 	var max = Number.NEGATIVE_INFINITY;
+		// 	// Loop through the arguments, looking for, and remembering, the biggest. 
+		// 	for(var i = 0; i < arguments.length; i++)
+		// 		if (arguments[i] > max) max = arguments[i]; // Return the biggest
+
+		// 	return max;
+		// }
+
+		// // var largest = max(1, 10, 100, 2, 3, 1000, 4, 5, 10000, 6); // => 10000
+		// var largest = max(-1, -10, -100, -2, -3, -1000, -4, -5, -10000, -6); // => -1
+		// console.log(largest, " ∆");
+
+		/////////////////////////
+
+		// function test(a,b,c){
+		// 	console.log(arguments, " ∆")
+		// }
+
+		// test()
+
+		/////////////////////////
+
+		// function isArrayLike(o) {
+		// 	if (o && 
+		// 		typeof o === "object" && 
+		// 		isFinite(o.length) &&
+		// 		o.length >= 0 && 
+		// 		o.length === Math.floor(o.length) && 
+		// 		o.length < 4294967296)
+		// 		return true;
+		// 	else
+		// 		return false;
+		// }
+
+		// /////////////////////////
+
+		// function sum(a) {
+		// 	if (isArrayLike(a)) { 
+		// 		var total = 0;
+		// 		for(var i = 0; i < a.length; i++) { // Loop though all elements 
+		// 			var element = a[i];
+		// 			if (element == null) continue; // Skip null and undefined 
+		// 			if (isFinite(element)) total += element;
+		// 			else throw new Error("sum(): elements must be finite numbers"); 
+		// 		}
+		// 	return total; 
+		// 	}
+		// 	else throw new Error("sum(): argument must be array-like"); 
+		// }
+		
+		/////////////////////////
+
+		// var operators = {
+		// 	add:function(x,y) { return x+y; },
+		// 	subtract: function(x,y) { return x-y; },
+		// 	multiply: function(x,y) { return x*y; },
+		// 	divide: function(x,y) { return x/y; },
+		// 	pow:Math.pow // Works for predefined functions too
+		// };
+
+		// function operate2(operation, operand1, operand2) {
+		// 	console.log(typeof operators[operation])
+
+		// 	if (typeof operators[operation] === "function") 
+		// 		return operators[operation](operand1, operand2);
+		// 	else throw "unknown operator"; 
+		// }
+
+		// // Compute the value ("hello" + " " + "world") like this:
+		// var j = operate2("add", "hello", operate2("add", " ", "world")); // Using the predefined Math.pow() function:
+		// var k = operate2("pow", 10, 2);
+
+		// console.log(j,k);
+
+		/////////////////////////
+
+		// uniqueInteger.counter = 0;
+		// // This function returns a different integer each time it is called.
+		// // It uses a property of itself to remember the next value to be returned. 
+		// function uniqueInteger() {
+		// 	return uniqueInteger.counter++; // Increment and return counter property 
+		// }
+
+		// console.log(uniqueInteger(), " ∆");
+		// console.log(uniqueInteger(), " ∆");
+
+		/////////////////////////
+
+		// Closure
+		// var scope = "global scope"; 
+
+		// function checkscope() {
+		// 	var scope = "local scope"; 
+		// 	function f() { return scope; } 
+		// 	return f;
+		// } 
+		// console.log(checkscope()());
+
+		/////////////////////////
+
+		// var uniqueInteger = (function() { // Define and invoke
+		// 	var counter = 0; // Private state of function below
+		// 	return function() { return counter++; }; 
+		// }());
+
+		// console.log(uniqueInteger())
+		// console.log(uniqueInteger())
+
+		/////////////////////////
+
+		// function counter() { var n = 0;
+		// 	return {
+		// 		count: function() { return n++; }, 
+		// 		reset: function() { n = 0; }
+		// 	}; 
+		// }
+		
+		// var c = counter(), 
+		// d = counter(); 
+
+		// console.log(c.count())
+		// console.log(d.count())
+
+		// console.log(c.count())
+		// console.log(d.count())
+
+		/////////////////////////
+
+		// function counter(n) { // Function argument n is the private variable 
+		// 	return {
+		// 		// Property getter method returns and increments private counter var. 
+		// 		get count() { return n++; },
+		// 		// Property setter doesn't allow the value of n to decrease
+		// 		set count(m) {
+		// 			if (m >= n) n = m;
+		// 			else throw Error("count can only be set to a larger value"); }
+		// 	}; 
+		// }
+
+		// var c = counter(1000)
+		// console.log(c.count)
+		// console.log(c.count)
+		
+		/////////////////////////
+
+	</script>
+</body>
+</html>
