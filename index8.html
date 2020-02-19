@@ -230,9 +230,150 @@
 		// var c = counter(1000)
 		// console.log(c.count)
 		// console.log(c.count)
+
+		/////////////////////////
+
+		// function addPrivateProperty(o, name, predicate) {
+		// 	var value; // This is the property value
+		// 	// The getter method simply returns the value. 
+		// 	o["get" + name] = function() { return value; };
+		// 	// The setter method stores the value or throws an exception if // the predicate rejects the value.
+		// 	o["set" + name] = function(v) {
+		// 		if (predicate && !predicate(v))
+		// 			throw Error("set" + name + ": invalid value " + v);
+		// 		else
+		// 			value = v;
+		// 	}; 
+		// }
+
+		// var o = {};
+
+		// addPrivateProperty(o, "Name", function(x) { return typeof x == "string"; });
+
+		// o.setName("Frank");
+
+		// console.log(o, o.getName())
+		// console.log(o.setName("Volkan"))
+		// console.log(o.getName())
+
+		/////////////////////////
+
+		// // This function returns a function that always returns v 
+		// function constfunc(v) { return function() { return v; }; }
+		// // Create an array of constant functions:
+		// var funcs = [];
+		// for(var i = 0; i < 10; i++) funcs[i] = constfunc(i);
+		// // The function at array element 5 returns the value 5. 
+		// console.log(funcs[5]()) // => 5
+		// console.log(funcs)
+
+		/////////////////////////
+
+		// function constfuncs() {
+		// 	var funcs = [];
+		// 	for(var i = 0; i < 10; i++){
+		// 		funcs[i] = function() { return i; }; 
+		// 		console.log(i);
+		// 	}
+		// 	return funcs;
+		// }
+		// var funcs = constfuncs();
+		// console.log(funcs)
+		// console.log(funcs[1]())
 		
 		/////////////////////////
 
+		// function check(args) {
+		// 	var actual = args.length; // The actual number of arguments
+		// 	console.log(args)
+		// 	console.log(args.callee.length)
+		// 	var expected = args.callee.length; // The expected number of arguments 
+		// 	if (actual !== expected) // Throw an exception if they differ.
+		// 		throw Error("Expected " + expected + "args; got " + actual);
+		// }
+
+		// function f(x, y, z) {
+		// 	check(arguments); // Check that the actual # of args matches expected #. 
+		// 	return x + y + z; // Now do the rest of the function normally.
+		// }
+
+		// console.log(f(1,3))
+
+		/////////////////////////
+
+		// const bruce = { name: "Bruce", myName: function(){console.log(this)} }; 
+		// const madeline = { name: "Madeline" };
+		
+		// function greet() {
+		// 	return `Hello, I'm ${this.name}!`;
+		// }
+		
+		// greet(); 
+		// console.log(bruce);
+		// console.log(greet.call(bruce)); 
+		// console.log(greet.call(madeline));
+
+		/////////////////////////
+
+		// const bruce = { name: "Bruce" }; 
+		// const madeline = { name: "Madeline" };
+
+		// function update(birthYear, occupation) { 
+		// 	this.birthYear = birthYear; 
+		// 	this.occupation = occupation;
+		// }
+		
+		// update.call(bruce, 1949, 'singer')
+		// console.log(bruce)
+		// update.call(madeline, 1942, 'actress');
+		// console.log(madeline)
+		// // madeline is now { name: "Madeline", birthYear: 1942, // occupation: "actress" }
+
+		// update.apply(bruce, [1955, "actor"]);
+		// update.apply(madeline, [1918, "writer"]);
+		// console.log(bruce)
+		// console.log(madeline)
+
+		/////////////////////////
+
+		// const array1 = [1, 3, 2];
+		// console.log(Math.max(...array1));
+
+		// const arr = [2, 3, -5, 15, 7]; 
+		// console.log(Math.min.apply(null, arr)) // -5 
+		// console.log(Math.max.apply(null, arr)) // 15
+		
+		/////////////////////////
+
+		// const mod = {
+		//   x: 42,
+		//   getX: function() {
+		//   	console.log(this,' ∆')
+		//     return this.x;
+		//   }
+		// }
+
+		// const unboundGetX = mod.getX;
+		// console.log(unboundGetX());
+
+		// const boundGetX = unboundGetX.bind(mod);
+		// console.log(boundGetX());
+
+		/////////////////////////
+
+		// var o = {
+		// 	myFunc : function(){ 
+		// 		console.log(this, " ∆") 
+		// 		return this.x
+		// 	},
+		// 	x: 33
+		// }
+		// var p = o.myFunc;
+		// console.log(p())
+		// var q = p.bind(o)
+		// console.log(q())
+		
+		/////////////////////////
 	</script>
 </body>
 </html>
