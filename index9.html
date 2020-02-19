@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<script>
+
+		/////////////////////////
+
+		// function inherit(p) {
+		// 	if (p == null) throw TypeError(); 
+		// 	if (Object.create)
+		// 		return Object.create(p);
+		// 	var t = typeof p;
+		// 	if (t !== "object" && t !== "function")
+		// 		throw TypeError()
+
+		// 	function f() {}; 
+		// 	f.prototype = p; 
+		// 	return new f();
+		// }
+
+		// function range(from, to) {
+		// 	var r = inherit(range.methods);
+		// 	r.from = from;
+		// 	r.to = to;
+		// 	return r; 
+		// }
+
+		// range.methods = {
+		// 	includes: function(x) { return this.from <= x && x <= this.to; },
+		// 	foreach: function(f) {
+		// 		for(var x = Math.ceil(this.from); 
+		// 			x <= this.to; x++) f(x); 
+		// 	},
+		// 	toString: function(){ return "(" + this.from + "..." + this.to + ")"; }	
+		// }
+
+		// var r = range(1,3);
+		// console.log(r.includes(2));
+		// r.foreach(console.log);
+		// console.log(r, ' ∆');
+
+		/////////////////////////
+
+		// function Range(from, to) {
+		// 	this.from = from;
+		// 	this.to = to;
+		// }
+
+		// Range.prototype = {
+		// 	includes: function(x) { return this.from <= x && x <= this.to; },
+		// 	foreach: function(f) {
+		// 		for(var x = Math.ceil(this.from); x <= this.to; x++) f(x); 
+		// 	},
+		// 	toString: function() { return "(" + this.from + "..." + this.to + ")"; } 
+		// };
+
+		// var r = new Range(1,3); 
+		// r.includes(2); 
+		// r.foreach(console.log); 
+		// console.log(r);
+
+		/////////////////////////
+
+		// function Set() {
+		// 	this.values = {};
+		// 	this.n = 0;
+		// 	this.add.apply(this, arguments); // All arguments are values to add
+		// }
+
+		// Set.prototype.add = function() {
+		// 	for(var i = 0; i < arguments.length; i++) { 
+		// 		var val = arguments[i];
+		// 		var str = Set._v2s(val);
+		// 		if (!this.values.hasOwnProperty(str)) {
+		// 			this.values[str] = val; 
+		// 			this.n++;
+		// 		}
+		// 	} 
+		// 	return this;
+		// }
+		
+		// Set.prototype.remove = function() {
+		// 	for(var i = 0; i < arguments.length; i++) { 
+		// 		var str = Set._v2s(arguments[i]);
+		// 		if (this.values.hasOwnProperty(str)) {
+		// 			delete this.values[str]; this.n--;
+		// 		} 
+		// 	}
+		// 	return this;
+		// }
+
+		// Set.prototype.contains = function(value) {
+		// 	return this.values.hasOwnProperty(Set._v2s(value)); 
+		// };
+
+		// Set.prototype.size = function() { return this.n; };
+
+		// Set.prototype.foreach = function(f, context) {
+		// 	for(var s in this.values)
+		// 		if (this.values.hasOwnProperty(s))
+		// 			f.call(context, this.values[s]);
+		// };
+
+		/////////////////////////
+
+		// class Car { 
+		// 	constructor(make, model) {
+		// 		this.make = make;
+		// 		this.model = model;
+		// 		this._userGears = ['P', 'N', 'R', 'D']; 
+		// 		this._userGear = this._userGears[0];
+		// 	}
+	
+		// 	get userGear() { return this._userGear; } 
+		// 	set userGear(value) {
+		// 		if(this._userGears.indexOf(value) < 0)
+		// 			throw new Error(`Invalid gear: ${value}`);
+		// 		this._userGear = value; 
+		// 	}
+		// 	shift(gear) { this.userGear = gear; } 
+		// }
+
+		// const car1 = new Car("Tesla", "Model S"); 
+		// const car2 = new Car("Mazda", "3i"); 
+		// car1.shift('D');
+		// car2.shift('R');
+
+		// console.log(car1);
+		// console.log(car2);
+
+		// console.log(car1.shift === Car.prototype.shift)
+		// console.log(car1.shift('D'))
+		// // console.log(car1.shift('d'))
+		// console.log(car1.userGear, " ∆")
+
+		// console.log(car1.shift === car2.shift)
+		// car1.shift = function(gear) { this.userGear = gear.toUpperCase(); }
+		// console.log(car1.shift === Car.prototype.shift)
+		// console.log(car1.shift === car2.shift)
+
+		// car1.shift('d')
+		// console.log(car1.userGear)
+
+		/////////////////////////
+
+		// class Car {
+		// 	static getNextVin() {
+		// 		console.log(this.nextVin, "THIS")
+		// 		return Car.nextVin++;
+  //  			}
+  //  			constructor(make, model) {
+		// 		this.make = make; 
+		// 		this.model = model;
+		// 		this.nextVin = 0;
+		// 		this.vin = Car.getNextVin();
+		// 	}
+		// 	static areSimilar(car1, car2) {
+		// 		return car1.make===car2.make && car1.model===car2.model; 
+		// 	}
+		// 	static areSame(car1, car2) { 
+		// 		return car1.vin===car2.vin;
+		// 	} 
+		// }
+
+		// // Car.nextVin = 0;
+
+		// const car1 = new Car("Tesla", "S");
+		// const car2 = new Car("Mazda", "3"); 
+		// const car3 = new Car("Mazda", "3");
+
+		// console.log(car1.vin, car2.vin, car3.vin)
+		
+		/////////////////////////
+
+		class Vehicle { 
+			constructor() {
+				this.passengers = [];
+				console.log("Vehicle created"); 
+			}
+			addPassenger(p) { 
+				this.passengers.push(p);
+			} 
+		}
+		
+		class Car extends Vehicle { 
+			constructor() {
+				super();
+				console.log("Car created"); 
+			}
+			deployAirbags() { 
+				console.log("BWOOSH!");
+			}
+		 }
+
+		 const v = new Vehicle(); 
+		 v.addPassenger("Frank"); 
+		 v.addPassenger("Judy"); 
+		 console.log(v.passengers);
+
+		 const c = new Car(); 
+		 c.addPassenger("Alice"); 
+		 c.addPassenger("Cameron"); 
+		 console.log(c.passengers);
+
+		 // v.deployAirbags(); throws error
+		 c.deployAirbags();
+
+		 // polymorphism
+
+		 class Motorcycle extends Vehicle {} 
+		 const ca = new Car();
+		const m = new Motorcycle();
+
+		console.log(ca instanceof Car)
+		console.log(ca instanceof Vehicle)
+		console.log(m instanceof Car)
+		console.log(m instanceof Motorcycle)
+		console.log(m instanceof Vehicle)
+	</script>
+</body>
+</html>
+
