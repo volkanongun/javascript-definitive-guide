@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<script>
+
+		/////////////////////////
+
+		var pattern = /s$/;
+
+		var pattern2 = new RegExp("s$");
+		console.log(pattern)
+		console.log(pattern2)
+
+		var pattern3 = /\d{2,4}/;
+
+		var pattern4 = /\w{3}\d?/ // 3 letter words with ootional ascii digit;
+
+		var pattern5 = /\s+java\s+/; // space with java word
+
+		var pattern6 = /[^(]*/; // Match zero or more characters that are not open parenthesis
+
+		var pattern7 = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/;
+
+		var pattern8 = /(['"])[^'"]*\1/;
+
+		console.log("JavaScript".search(/script/i))
+
+		var text = "javascript"
+		console.log(text.replace(/javascript/gi, "JavaScript"));
+
+		console.log("1 plus 2 equals 3".match(/\d/g));
+
+		var url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+		var text = "Visit my blog at http://www.example.com/~david"; 
+		var result = text.match(url);
+		console.log(result, " ∆")
+		if (result != null) {
+			var fullurl = result[0]; // Contains "http://www.example.com/~david" 
+			var protocol = result[1]; // Contains "http"
+			var host = result[2]; // Contains "www.example.com"
+			var path = result[3]; // Contains "~david"
+			console.log(fullurl, protocol, host, path)
+		}
+
+		/////////////////////////
+
+		const email = /\b[a-z0-9._-]+@[a-z_-]+(?:\.[a-z]+)+\b/; // email recognizer
+
+		var zipcode = new RegExp("\\d{5}", "g");
+
+		
+	</script>
+</body>
+</html>
+
