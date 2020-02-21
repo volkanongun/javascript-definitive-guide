@@ -8,49 +8,76 @@
 </head>
 <body>
 
+	<iframe id="f1"></iframe>
+
 	<script>
 
 		/////////////////////////
 
 		// URL is file:///Users/volkan/dev/javascript-defintive-guide/index14.html?name=volkan&surname=ongun
 		
-		function urlArgs() { 
-			var args = {};
-			var query = location.search.substring(1); 
-			var pairs = query.split("&");
+		// function urlArgs() { 
+		// 	var args = {};
+		// 	var query = location.search.substring(1); 
+		// 	var pairs = query.split("&");
 
-			console.log(pairs)
+		// 	console.log(pairs)
 
-			for(var i = 0; i < pairs.length; i++) {
-				var pos = pairs[i].indexOf('=');
-				if (pos == -1) continue;
-				var name = pairs[i].substring(0,pos); 
-				var value = pairs[i].substring(pos+1); 
-				value = decodeURIComponent(value); 
-				args[name] = value;
-			}
+		// 	for(var i = 0; i < pairs.length; i++) {
+		// 		var pos = pairs[i].indexOf('=');
+		// 		if (pos == -1) continue;
+		// 		var name = pairs[i].substring(0,pos); 
+		// 		var value = pairs[i].substring(pos+1); 
+		// 		value = decodeURIComponent(value); 
+		// 		args[name] = value;
+		// 	}
 
-			return args;
-		}
+		// 	return args;
+		// }
 
-		var args = urlArgs();
-		var q = args.q || "";
-		var n = args.n ? parseInt(args.n) : 10;
-		console.log(args,q,n)
+		// var args = urlArgs();
+		// var q = args.q || "";
+		// var n = args.n ? parseInt(args.n) : 10;
+		// console.log(args,q,n)
 		
 		/////////////////////////
 
-		if (!XMLHttpRequest) location.replace("staticpage.html");
+		// if (!XMLHttpRequest) location.replace("staticpage.html");
 
 		/////////////////////////
 
-		var browser = (function() {
-			var s = navigator.userAgent.toLowerCase();
-			var match = /(webkit)[ \/]([\w.]+)/.exec(s) || /(opera)(?:.*version)?[ \/]([\w.]+)/.exec(s) ||
-			/(msie) ([\w.]+)/.exec(s) || !/compatible/.test(s) && /(mozilla)(?:.*? rv:([\w.]+))?/.exec(s) || [];		
-			return { name: match[1] || "", version: match[2] || "0" }; }());
+		// var browser = (function() {
+		// 	var s = navigator.userAgent.toLowerCase();
+		// 	var match = /(webkit)[ \/]([\w.]+)/.exec(s) || /(opera)(?:.*version)?[ \/]([\w.]+)/.exec(s) ||
+		// 	/(msie) ([\w.]+)/.exec(s) || !/compatible/.test(s) && /(mozilla)(?:.*? rv:([\w.]+))?/.exec(s) || [];		
+		// 	return { name: match[1] || "", version: match[2] || "0" }; }());
 
-		console.log(browser)
+		// console.log(browser)
+
+		/////////////////////////
+
+		// do {
+		// 	var name = prompt("What is your name?"); // Get a string 
+		// 	var correct = confirm("You entered '" + name + "'.\n" + "Click Okay to proceed or Cancel to re-enter.");;
+		// 	console.log(correct)
+		// } while(!correct)
+		// alert("Hello " + name)
+
+		/////////////////////////
+
+		// var w = window.open("smallwin.html", "smallwin", "width=400,height=350,status=no,resizable=no");
+
+		/////////////////////////
+
+		var iframeElement = document.getElementById("f1");
+		console.log(iframeElement);
+		var childFrame = document.getElementById("f1").contentWindow;
+		console.log(childFrame);
+
+		var elt = document.getElementById("f1");
+		var win = elt.contentWindow;
+		console.log(elt)
+		console.log(win)
 
 	</script>
 </body>

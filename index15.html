@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14</title>
+	<style>
+		.warnings{
+			background: red;
+			color:white;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<div id="myID">lorem lorem</div>
+	<div id="myID2">lor mor</div>
+
+	<form name="shipping_address">
+		<input name="favorite_color" type="checkbox"/>
+	</form>
+
+	<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, fugit. Porro quam pariatur laudantium nam, odio, nemo doloribus necessitatibus impedit accusamus, in omnis nostrum ipsam dolores id adipisci sapiente! Architecto.</span>
+	<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, illo soluta consequuntur facere sint iure aperiam in qui! Laborum doloribus nobis eum maxime sapiente expedita quibusdam aut veniam placeat ipsum.</span>
+	<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi ullam, assumenda repudiandae beatae in explicabo, commodi molestias fugiat pariatur, sequi iure quos culpa, quasi aliquam aut. Fugiat facere quisquam esse.</span>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto repellendus nulla veniam, aperiam, fugiat sequi voluptatem <span>accusantium</span> dolore, <span>pariatur</span> doloremque nam delectus adipisci nisi omnis! Minima consequatur cupiditate blanditiis repellendus.</p>
+
+	<p>Lorem ipsum dolor sit amet, consectetur <span>adipisicing</span> elit. Architecto repellendus nulla veniam, aperiam, fugiat sequi voluptatem accusantium dolore, pariatur doloremque nam delectus adipisci nisi omnis! Minima consequatur cupiditate blanditiis repellendus.</p>
+
+	<div class="warnings">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum excepturi ratione quis. Autem numquam fugiat quam voluptatibus perferendis praesentium dolore minima quisquam, iusto, provident veniam culpa nemo perspiciatis aliquam mollitia!</div>
+	<div class="warnings">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum excepturi ratione quis. Autem numquam fugiat quam voluptatibus perferendis praesentium dolore minima quisquam, iusto, provident veniam culpa nemo perspiciatis aliquam mollitia!</div>
+
+	<img src="logo.png"/>
+	<img src="logo2.png"/>
+
+	<span class="sparkline" data-ymin="0" data-ymax="10"> 1 1 1 2 2 3 4 5 5 4 3 5 6 77 4 2 1</span>
+
+	<table id="myTable">
+		<thead>
+			<th>Players</th>
+			<th>Scores</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Volkan</td>
+				<td>100</td>
+			</tr>
+
+			<tr>
+				<td>Akif</td>
+				<td>98</td>
+			</tr>
+			<tr>
+				<td>Someone</td>
+				<td>100</td>
+			</tr>
+		</tbody>
+	</table>	
+
+	<script>
+
+		/////////////////////////
+
+		// function getElements() {
+		// 	var elements = {};
+		// 	for(var i = 0; i < arguments.length; i++) {
+		// 		var id = arguments[i];
+		// 		var elt = document.getElementById(id); 
+		// 		if (elt == null)
+		// 			throw new Error("No element with id: " + id);
+		// 		elements[id] = elt;
+		// 	}
+
+		// 	return elements;
+		// }
+
+		// console.log(getElements("myID","myID2"))
+
+		/////////////////////////
+
+		// var radiobuttons = document.getElementsByName("favorite_color");
+		// console.log(radiobuttons)
+
+		// var form = document.shipping_address;
+		// console.log(form);
+		
+		/////////////////////////
+
+		// var spans = document.getElementsByTagName("span");
+		// console.log(spans)
+		// console.log(spans[0])
+
+		
+		/////////////////////////
+
+		// var firstpara = document.getElementsByTagName("p")[0];
+		// console.log(firstpara)
+		// var firstParaSpans = firstpara.getElementsByTagName("span");
+		// console.log(firstParaSpans)
+
+		// console.log(document.forms.shipping_address)
+
+		// var content = Array.prototype.map.call(document.getElementsByTagName("p"), function(e) { return e.innerHTML; });
+
+		// var warnings = document.getElementsByClassName("warnings");
+		// console.log(warnings)
+
+		/////////////////////////
+
+		// var image = document.images[0];
+		// var width = parseInt(image.getAttribute("WIDTH")); 
+		// image.setAttribute("class", "thumbnail");
+		// console.log(image)
+
+		/////////////////////////
+
+		// var sparklines = document.getElementsByClassName("sparkline"); 
+		// for(var i = 0; i < sparklines.length; i++) {
+		// 	var dataset = sparklines[i].dataset;
+		// 	var ymin = parseFloat(dataset.ymin);
+		// 	var ymax = parseFloat(dataset.ymax);
+		// 	var data = sparklines[i].textContent.trim().split(" ").map(parseFloat);
+			
+		// 	console.log(sparklines[i], " > sparklines")
+		// 	console.log(ymin, " ymin")
+		// 	console.log(ymax, " ymax")
+		// 	console.log(data, " data"); // Not yet implemented 
+		// }
+
+		/////////////////////////
+
+		// var para = document.getElementsByTagName("p")[0]; // First <p> in the document 
+		// var text = para.textContent; // Text is "This is a simple document." 
+		// para.textContent = "Hello World!"; // Alter paragraph content
+		
+		/////////////////////////
+
+		function sortrows(table, n, comparator) {
+			var tbody = table.tBodies[0]; 
+			console.log(tbody," ?")
+			var rows = tbody.getElementsByTagName("tr"); 
+			rows = Array.prototype.slice.call(rows,0); 
+			
+			rows.sort(function(row1,row2) {
+				var cell1 = row1.getElementsByTagName("td")[n]; 
+				var cell2 = row2.getElementsByTagName("td")[n]; 
+				var val1 = cell1.textContent || cell1.innerText; 
+				var val2 = cell2.textContent || cell2.innerText; 
+
+				if (comparator) return comparator(val1, val2); 
+				if (val1 < val2) return -1;
+				else if (val1 > val2) return 1;
+				else return 0; 
+			});
+
+			for(var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
+		}
+
+		function makeSortable(table) {
+			var headers = table.getElementsByTagName("th"); 
+			for(var i = 0; i < headers.length; i++) {
+				(function(n) { 
+					headers[i].onclick = function() { sortrows(table, n); }; 
+				}(i)); 
+			} 
+		}
+
+		makeSortable(document.querySelector("#myTable"))
+
+		/////////////////////////
+
+		var n = document.getElementById("myID")
+		n.parentNode.removeChild(n);
+		
+		var n = document.getElementById("myID2")
+		n.parentNode.replaceChild(document.createTextNode("[ REDACTED ]"), n);
+
+	</script>
+</body>
+</html>
