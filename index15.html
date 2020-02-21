@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>14</title>
+	<title>15</title>
 	<style>
 		.warnings{
 			background: red;
@@ -12,12 +12,43 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+		
+	<iframe id="editor" src="about:blank"></iframe>
 
 	<div id="myID">lorem lorem</div>
 	<div id="myID2">lor mor</div>
 
-	<form name="shipping_address">
-		<input name="favorite_color" type="checkbox"/>
+	<form name="shipping_address" id="address">
+		<div><input name="favorite_color" type="checkbox"/></div>
+		<div><input name="favorite_color" type="checkbox"/></div>
+		<div><input name="favorite_color" type="checkbox"/></div>
+		<div><input name="favorite_color" type="checkbox"/></div>
+
+		<div><input type="text"/></div>
+		<div><input type="text"/></div>
+		<div><input type="text"/></div>
+
+		<div><input type="radio"></div>
+	</form>
+
+	<form name="shipping"> 
+		<fieldset>
+			<legend>Shipping Method</legend>
+			<label>
+				<input type="radio" name="method" value="1st">First-class</label> 
+				<label><input type="radio" name="method" value="2day">2-day Air</label> 
+				<label><input type="radio" name="method" value="overnite">Overnight</label>
+		</fieldset> 
+		<fieldset>
+			<label for="">
+				foobar
+				<select name="" id="country"></select>
+			</label>
+		</fieldset>
+
+		<textarea name="" id="myTextarea" cols="30" rows="10">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum vero laborum error quidem expedita obcaecati beatae deleniti, quam iusto necessitatibus doloremque sequi. Qui et amet alias saepe molestiae ducimus fugiat.
+		</textarea>
 	</form>
 
 	<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, fugit. Porro quam pariatur laudantium nam, odio, nemo doloribus necessitatibus impedit accusamus, in omnis nostrum ipsam dolores id adipisci sapiente! Architecto.</span>
@@ -56,7 +87,9 @@
 				<td>100</td>
 			</tr>
 		</tbody>
-	</table>	
+	</table>
+
+	<div style="height: 1000px" id="myID3"></div>
 
 	<script>
 
@@ -136,46 +169,171 @@
 		
 		/////////////////////////
 
-		function sortrows(table, n, comparator) {
-			var tbody = table.tBodies[0]; 
-			console.log(tbody," ?")
-			var rows = tbody.getElementsByTagName("tr"); 
-			rows = Array.prototype.slice.call(rows,0); 
+		// function sortrows(table, n, comparator) {
+		// 	var tbody = table.tBodies[0]; 
+		// 	console.log(tbody," ?")
+		// 	var rows = tbody.getElementsByTagName("tr"); 
+		// 	rows = Array.prototype.slice.call(rows,0); 
 			
-			rows.sort(function(row1,row2) {
-				var cell1 = row1.getElementsByTagName("td")[n]; 
-				var cell2 = row2.getElementsByTagName("td")[n]; 
-				var val1 = cell1.textContent || cell1.innerText; 
-				var val2 = cell2.textContent || cell2.innerText; 
+		// 	rows.sort(function(row1,row2) {
+		// 		var cell1 = row1.getElementsByTagName("td")[n]; 
+		// 		var cell2 = row2.getElementsByTagName("td")[n]; 
+		// 		var val1 = cell1.textContent || cell1.innerText; 
+		// 		var val2 = cell2.textContent || cell2.innerText; 
 
-				if (comparator) return comparator(val1, val2); 
-				if (val1 < val2) return -1;
-				else if (val1 > val2) return 1;
-				else return 0; 
-			});
+		// 		if (comparator) return comparator(val1, val2); 
+		// 		if (val1 < val2) return -1;
+		// 		else if (val1 > val2) return 1;
+		// 		else return 0; 
+		// 	});
 
-			for(var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
-		}
+		// 	for(var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
+		// }
 
-		function makeSortable(table) {
-			var headers = table.getElementsByTagName("th"); 
-			for(var i = 0; i < headers.length; i++) {
-				(function(n) { 
-					headers[i].onclick = function() { sortrows(table, n); }; 
-				}(i)); 
-			} 
-		}
+		// function makeSortable(table) {
+		// 	var headers = table.getElementsByTagName("th"); 
+		// 	for(var i = 0; i < headers.length; i++) {
+		// 		(function(n) { 
+		// 			headers[i].onclick = function() { sortrows(table, n); }; 
+		// 		}(i)); 
+		// 	} 
+		// }
 
-		makeSortable(document.querySelector("#myTable"))
+		// makeSortable(document.querySelector("#myTable"))
 
 		/////////////////////////
 
-		var n = document.getElementById("myID")
-		n.parentNode.removeChild(n);
+		// var n = document.getElementById("myID")
+		// n.parentNode.removeChild(n);
 		
-		var n = document.getElementById("myID2")
-		n.parentNode.replaceChild(document.createTextNode("[ REDACTED ]"), n);
+		// var n = document.getElementById("myID2")
+		// n.parentNode.replaceChild(document.createTextNode("[ REDACTED ]"), n);
 
+		/////////////////////////
+
+		// function embolden(n) {
+		// 	// If we're passed a string instead of a node, treat it as an element id 
+		// 	if (typeof n == "string") n = document.getElementById(n);
+		// 	var parent = n.parentNode; // Get the parent of n
+		// 	var b = document.createElement("b"); // Create a <b> element 
+		// 	parent.replaceChild(b, n); // Replace n with the <b> element 
+		// 	b.appendChild(n); // Make n a child of the <b> element
+		// }
+
+		// embolden("myID")
+
+		/////////////////////////
+
+		// function getScrollOffsets(w) {
+		// 	w = w || window;
+		// 	if (w.pageXOffset != null) return {x: w.pageXOffset, y:w.pageYOffset};
+		// 	if (document.compatMode == "CSS1Compat")
+		// 	return {x:d.documentElement.scrollLeft, y:d.documentElement.scrollTop};
+		// 	return { x: d.body.scrollLeft, y: d.body.scrollTop }; 
+		// }
+
+		// console.log(getScrollOffsets())
+
+		// function getViewportSize(w) {
+		// 	w = w || window;
+
+		// 	if (w.innerWidth != null) return {w: w.innerWidth, h:w.innerHeight};
+		// 	if (document.compatMode == "CSS1Compat")
+		// 		return { w: d.documentElement.clientWidth,
+		// 				 h: d.documentElement.clientHeight };
+		// 	return { w: d.body.clientWidth, h: d.body.clientWidth };
+		// }
+
+		// console.log(getViewportSize())
+
+		// var box = e.getBoundingClientRect(); // Get position in viewport coordinates var offsets = getScrollOffsets(); // Utility function defined above
+		// var x = box.left + offsets.x; // Convert to document coordinates
+		// var y = box.top + offsets.y;
+
+		/////////////////////////
+
+		// var documentHeight = document.documentElement.offsetHeight;
+		// var viewportHeight = window.innerHeight; 
+		// window.scrollTo(0, documentHeight - viewportHeight);
+
+		// function getElementPos(elt) {
+		// 	var x = 0, y = 0;
+		// 	// Loop to add up offsets
+		// 	for(var e = elt; e != null; e = e.offsetParent) {
+		// 		x += e.offsetLeft;
+		// 		y += e.offsetTop; 
+		// 	}
+		// 	// Loop again, through all ancestor elements to subtract scroll offsets.
+		// 	// This subtracts the main scrollbars, too, and converts to viewport coords. 
+		// 	for(var e=elt.parentNode; e != null && e.nodeType == 1; e=e.parentNode) {
+		// 		x -= e.scrollLeft;
+		// 		y -= e.scrollTop; 
+		// 	}
+
+		// 	return {x:x, y:y}; 
+		// }
+
+		// console.log(getElementPos(document.getElementById("myID2")))
+
+		/////////////////////////
+
+		// var fields = document.getElementById("address").getElementsByTagName("input");
+
+		// var realArray = Array.prototype.map.call(fields, function(e) { return e; })
+		// console.log(realArray[0])
+
+		/////////////////////////
+
+		// console.log(window.address)
+		// console.log(document.address)
+		// console.log(document.forms.address )
+		// console.log(document.forms[0])
+
+		// console.log(document.querySelectorAll('#address input[type="radio"]'))
+		// console.log(document.querySelectorAll('#address input[type="radio"][name="method"]'))
+
+		// var methods = document.forms.shipping.elements.method;
+		// console.log(methods)
+
+		/////////////////////////
+
+		// var zaire = new Option("Zaire", // The text property
+		// 	"zaire", 
+		// 	false, 
+		// 	false); 
+			
+		// 	var countries = document.shipping.country; // Get the Select object 
+		// 	countries.options[countries.options.length] = zaire;
+
+		/////////////////////////
+
+		// function getSelectedText() {
+		// 	if (window.getSelection) // The HTML5 standard API
+		// 		return window.getSelection().toString();
+		// 	else if (document.selection) // This is the IE-specific technique.
+		// 		return document.selection.createRange().text;
+		// }
+
+		// setInterval(function(){
+		// 	console.log(getSelectedText())
+		// }, 1000)
+
+		/////////////////////////
+
+		// var myTextarea = document.querySelector("#myTextarea")
+		// setInterval(function(){
+		// 	console.log(myTextarea.value.substring(myTextarea.selectionStart, myTextarea.selectionEnd))
+		// }, 1000)
+		
+		/////////////////////////
+
+		// window.onload = (function() { // When document loads,
+		// 	var editor = document.getElementById("editor"); // get the iframe document
+		// 	editor.contentDocument.designMode = "on"; // and turn editing on. 
+		// });
+
+		/////////////////////////
+		
 	</script>
 </body>
 </html>
