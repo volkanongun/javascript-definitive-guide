@@ -3,15 +3,106 @@
 <head>
 	<meta charset="UTF-8">
 	<title>16</title>
-	<style>
-		
+	<style type="text/css">
+		h1, h2 { color: blue; font-style: italic }
+		.WARNING {
+			font-weight: bold;
+			font-size: 150%;
+			margin: 0 1in 0 1in; /* top right bottom left */ 
+			background-color: yellow;
+			border: solid red 8px;
+			padding: 10px; /* 10 pixels on all 4 sides */
+		}
+
+		.WARNING h1, .WARNING h2 { text-align: center }
+		 #special {
+			text-align: center;
+			text-transform: uppercase; 
+		}
 	</style>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-		
+
+	<p style="margin: 20px; border: solid red 2px;"> This paragraph has increased margins and is surrounded by a rectangular red border.
+
+		<h1>Cascading Style Sheets Demo</h1>
+		<div class="WARNING">
+		<h2>Warning</h2>
+		This is a warning!
+		Notice how it grabs your attention with its bold text and bright colors. Also notice that the heading is centered and in blue italics.
+		</div>
+		<p id="special">
+		This paragraph is centered<br>
+		and appears in uppercase letters.<br>
+		<span style="text-transform: none">
+		Here we explicitly use an inline style to override the uppercase letters. </span>
+		</p>
+</p>
+		<div id="myID" style="position: absolute; width:100px;height:100px;left: 100px; top: 100px;background: green">
+		</div>
 	<script>
+
+		/////////////////////////
+
+		// function scaleColor(e, factor) {
+		// 	var color = window.getComputedStyle(e, "").backgroundColor;
+		// 	var components = color.match(/[\d\.]+/g);
+		// 	for(var i = 0; i < 3; i++) {
+		// 		var x = Number(parseInt(components[i])) * factor;
+		// 		x = Math.round(Math.min(Math.max(x, 0), 255));
+		// 		components[i] = String(x);
+		// 	}
+		// 	console.log(components)
+		// 	if (components.length == 3)
+		// 		e.style.backgroundColor = "rgb(" + components.join() + ")";
+		// 	else
+		// 		e.style.backgroundColor = "rgba(" + components.join() + ")";
+		// }
+
+		// console.log(scaleColor(document.querySelector("#myID"), 2))
+
+		/////////////////////////
+
+	// 	function addStyles(styles) {
+
+	// 		var styleElt, styleSheet;
+
+	// 		if (document.createStyleSheet) { // If the IE API is defined, use it
+	// 			styleSheet = document.createStyleSheet(); }
+	// 		else {
+	// 			var head = document.getElementsByTagName("head")[0]
+	// 			styleElt = document.createElement("style"); // New <style> element 
+	// 			head.appendChild(styleElt);
+	// 			// Now the new stylesheet should be the last one
+	// 			styleSheet = document.styleSheets[document.styleSheets.length-1] 
+	// 		}
+
+	// 		if (typeof styles === "string") {
+
+	// 			if (styleElt) 
+	// 				styleElt.innerHTML = styles; 
+	// 			else 
+	// 				styleSheet.cssText = styles;
+	// 		}
+	// 		else {
+	// 			var i = 0;
+	// 			for(selector in styles) {
+	// 				if (styleSheet.insertRule) {
+	// 					var rule = selector + " {" + styles[selector] + "}";
+	// 					styleSheet.insertRule(rule, i++); 
+	// 				}
+	// 			else {
+	// 				styleSheet.addRule(selector, styles[selector], i++);
+	// 			} 
+	// 		}
+	// 	} 
+	// }
+
+	// addStyles('h1 {color:red} h2 {color:green}')
 		
+		/////////////////////////
 	</script>
 </body>
 </html>
