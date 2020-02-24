@@ -7,6 +7,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+
+	<h1 id="mainTitle">Hello World</h1>
+	<h1 class="nodata" data-x="something">Hello World2</h1>
+	<h1>Hello World3</h1>
+	<h2 class="removed">Hello World</h2>
+
 	<button id="mybutton">Click me</button>
 	
 	<form name="shipping_address" id="address">
@@ -15,22 +21,222 @@
 		<div><input name="favorite_color" id="myID3" type="checkbox"/></div>
 		<div><input name="favorite_color" id="myID4" type="checkbox"/></div>
 
-		<div><input type="text"/></div>
+		<div><input type="text" value="bozo" id="bozo"/></div>
 		<div><input type="text"/></div>
 		<div><input type="text"/></div>
 
 		<div><input type="radio"></div>
+		<div><input type="radio" name="ship" checked="checked"></div>
+		<div><input type="radio"></div>
+		
+		<div><input type="checkbox"></div>
+		<div><input type="checkbox"></div>
 
 		<input type="submit" value="Submit">
 	</form>
 	
-	<img src="logo.png" style="position:absolute; left:100px; top:100px;">
+	<img src="logo.png" id="logo" >
+	<img src="logo.png" id="logo2" style="display: none" >
+
+	<div id="mydiv"></div>
+
+	<a href="#1">Hello</a>
+	<a href="#2">World</a>
+	<a href="#3">Pooman</a>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
+
+	<button id="mybutton1">Click me 1</button>
+	<button id="mybutton2">Click me 2</button>
+
+	<div id="message" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, fugiat accusantium reiciendis ut. Possimus minus est assumenda tempora mollitia, sequi molestias sunt minima nihil obcaecati alias porro illo magnam autem.</div>
+
+	<div id="blinker">blink blink</div>
 
 	<script>
 		
 		/////////////////////////
 
+		// function handleClick(e){
+		// 	console.log(e.target)
+		// }
+
+		// var img = $("<img/>", // Create a new <img> element 
+		// 	{ 
+		// 		src:"logo.png", // with this HTML attribute,
+		// 		css: {borderWidth:5}, // this CSS style,
+		// 		click: handleClick // and this event handler. 
+		// 	}
+		// );
+
+		// $("body").append(img);
+
+		/////////////////////////
+
+		// console.log($("body").toArray())
+
+		/////////////////////////
+
+		// var bodyscripts = $("script", document.body);
+		// console.log(bodyscripts.jquery)
+
+		/////////////////////////
+
+		// $("h1").css({ backgroundColor: "black",
+		// 	textColor: "white",
+		// 	fontVariant: "small-caps",
+		// 	padding: "10px 2px 4px 20px",
+		// 	border: "dotted black 4px",
+		// 	color: "white" })
+
+		// $("h1").addClass("hilite");
+		// $("h2").removeClass("removed");
+
+		// console.log($("#bozo").val())
+
+		// console.log($("input:radio[name=ship]:checked").val())
+
+		/////////////////////////
+
+		// var title = $("h1").text()
+		// console.log(title);
+
+		// var titleHTML = $("h1").html()
+		// console.log(titleHTML)
+
+		/////////////////////////
+
+		// $("h1,h2").text(function(n,current){
+		// 	return "∆" + (n+1) + ":" + current
+		// })
+
+		/////////////////////////
+
+		// var elt = $("#logo");
+		// var position = elt.offset(); 
+		// position.top += 400; 
+		// elt.offset(position);
+
+		// console.log(elt);
+
+		/////////////////////////
+
+		// $("h1").offset(function(index, pos){
+		// 	console.log(pos, index," ∆")
+		// 	return {left: pos.left + 125*index, top:pos.top}
+		// })
+
+		/////////////////////////
+
+		// var body = $("body");
+		// var contentWidth = body.width();
+		// var paddingWidth = body.innerWidth();
+		// var borderWidth = body.outerWidth();
+		// var marginWidth = body.outerWidth(true);
+		// var padding = paddingWidth-contentWidth; // sum of left and right padding
+		// var borders = borderWidth-paddingWidth; // sum of left and right border widths 
+		// var margins = marginWidth-borderWidth; // sum of left and right margins
+
+		// console.log(body,contentWidth,paddingWidth,borderWidth,marginWidth,padding,borders,margins)
+
+		/////////////////////////
+
+		// $("#mainTitle").data("x", 1); // Set some data 
+		// console.log($('#mainTitle').data("x"))
+		// $("#mainTitle").removeData("x"); // Remove some data 
+		// console.log($('#mainTitle').data("x"))
+
+		/////////////////////////
+
+		// $("h1").prepend("§");
+
+		// $("h1").before("<hr/>");
+		// $("h1").after("<br/>");
+
+		// $("h1").map(function() { 
+		// 	console.log(this.firstChild," ∆")
+		// 	return this.firstChild; 
+		// }).before("§");
+
+		/////////////////////////
+
+		// $(document.body).append("<div id='linklist'><h1>List of Links</h1></div>"); 
+		// $("a").clone().appendTo("#linklist");
+		// $("#linklist > a").after("<br/>");
+
+		/////////////////////////
+
+		// $("p").click(function() { $(this).css("background-color", "gray"); });
 		
+		/////////////////////////
+
+		// $(document.body).append($("<img/>", {
+		// 	src: 'logo.png',
+		// 	alt: "mydesc",
+		// 	className: "translucent_image",
+		// 	click: function() { console.log($(this));$(this).css({"opacity": "50%"}); }
+		// }));
+
+		/////////////////////////
+
+		function f(e){
+			console.log(e,e.type, " F")
+		}
+
+		function g(e) {
+			console.log(e.type, " G")
+		}
+
+		// $('p').bind('click', f);
+		// $('a').bind('mouseenter mouseleave', f);
+
+		/////////////////////////
+
+		// $('a').bind({mouseenter:f, mouseleave:g});
+		
+		/////////////////////////
+
+		// $('a').unbind('mouseenter mouseleave');
+		
+		/////////////////////////
+
+		// $('a').unbind({ // Remove specific mouseover and mouseout handlers 
+		// 	mouseover: f,
+		// 	mouseout: g
+		// });
+
+		/////////////////////////
+
+		// $('#mybutton1').click(function(e) { $('#mybutton2').trigger(e); });
+
+		// $("#mybutton1").click(function(e) { 
+		// 	$(this).css("background-color", "gray"); 
+
+		// 	if (e.synthetic) {console.log("synthetic")};
+		// });
+
+		// $('#mybutton1').trigger({type:'click', synthetic:true});
+
+		/////////////////////////
+
+		// $(document).delegate("a", "mouseover", f);
+		// $("p").append("<a href='#'>Delegate</a>")
+
+		/////////////////////////
+
+		// $("#message").fadeIn();
+		// $("#message").fadeOut("fast");
+		// $("#message").fadeIn("fast", function() { $(this).text("Hello World"); });
+
+		// $("#blinker").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn();
+
+		// $("img").fadeOut().show(300).slideUp().slideToggle();
+		
+		/////////////////////////
+
+		$("#logo2").fadeIn(500)
+			.animate({"width":"+=100"}, {queue:false, duration:1000}) 
+			.fadeOut(500);
 
 		/////////////////////////
 
