@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<button id="mybutton">Click me</button>
+	
+	<form name="shipping_address" id="address">
+		<div><input name="favorite_color" id="myID1" type="checkbox"/></div>
+		<div><input name="favorite_color" id="myID2" type="checkbox"/></div>
+		<div><input name="favorite_color" id="myID3" type="checkbox"/></div>
+		<div><input name="favorite_color" id="myID4" type="checkbox"/></div>
+
+		<div><input type="text"/></div>
+		<div><input type="text"/></div>
+		<div><input type="text"/></div>
+
+		<div><input type="radio"></div>
+
+		<input type="submit" value="Submit">
+	</form>
+	
+	<img src="logo.png" style="position:absolute; left:100px; top:100px;" onmousedown="if (event.shiftKey) drag(this, event);">
+
+	<script>
+		
+		/////////////////////////
+
+		// window.onload = function () {
+		// 	var b = document.getElementById("mybutton");
+		// 	b.onclick = function() { alert("Thanks for clicking me!"); }; 
+		// 	b.addEventListener("click", function() { 
+		// 		alert("Thanks again!"); 
+		// 		console.log(this, " ∆∆")
+		// 	}, false);
+
+		// 	var myform = document.getElementById("address")
+		// 	myform.addEventListener("submit", function(e){
+		// 		e.preventDefault();
+		// 		console.log(this)
+		// 	})
+		// }
+		
+		/////////////////////////
+
+		function getScrollOffsets(w) {
+			// Use the specified window or the current window if no argument 
+			w = w || window;
+			// This works for all browsers except IE versions 8 and before
+			if (w.pageXOffset != null) return {x: w.pageXOffset, y:w.pageYOffset};
+			// For IE (or any browser) in Standards mode var d = w.document;
+			if (document.compatMode == "CSS1Compat")
+			return {x:d.documentElement.scrollLeft, y:d.documentElement.scrollTop};
+			// For browsers in Quirks mode
+			return { x: d.body.scrollLeft, y: d.body.scrollTop }; 
+		}
+
+
+		function drag(elementToDrag, event) {
+			// The initial mouse position, converted to document coordinates
+			var scroll = getScrollOffsets(); // A utility function from elsewhere 
+			var startX = event.clientX + scroll.x;
+			var startY = event.clientY + scroll.y;
+			// The original position (in document coordinates) of the element
+			// that is going to be dragged. Since elementToDrag is absolutely // positioned, we assume that its offsetParent is the document body. 
+			var origX = elementToDrag.offsetLeft;
+			var origY = elementToDrag.offsetTop;
+			// Compute the distance between the mouse down event and the upper-left
+			// corner of the element. We'll maintain this distance as the mouse moves. 
+			var deltaX = startX - origX;
+			var deltaY = startY - origY;
+			// Register the event handlers that will respond to the mousemove events // and the mouseup event that follow this mousedown event.
+			document.addEventListener("mousemove", moveHandler, true); 
+			document.addEventListener("mouseup", upHandler, true);
+
+			if (event.stopPropagation) event.stopPropagation(); 
+			else event.cancelBubble = true;
+			if (event.preventDefault) event.preventDefault(); 
+			else event.returnValue = false;
+			
+			function moveHandler(e) {
+				if (!e) e = window.event; // IE event Model
+				// Move the element to the current mouse position, adjusted by the // position of the scrollbars and the offset of the initial click. 
+				var scroll = getScrollOffsets();
+				elementToDrag.style.left = (e.clientX + scroll.x - deltaX) + "px"; 
+				elementToDrag.style.top = (e.clientY + scroll.y - deltaY) + "px";
+				// And don't let anyone else see this event.
+				if (e.stopPropagation) e.stopPropagation(); // Standard 
+				else e.cancelBubble = true; // IE
+			}
+				/**
+				* This is the handler that captures the final mouseup event that * occurs at the end of a drag.
+				**/
+			function upHandler(e) {
+				if (!e) e = window.event; // IE Event Model
+				// Unregister the capturing event handlers.
+				if (document.removeEventListener) { // DOM event model
+					document.removeEventListener("mouseup", upHandler, true);
+					document.removeEventListener("mousemove", moveHandler, true); 
+				}
+				// And don't let the event propagate any further.
+				if (e.stopPropagation) e.stopPropagation(); // Standard model 
+			}
+		}
+	</script>
+</body>
+</html>
