@@ -8,6 +8,11 @@
 </head>
 <body>
 
+	<div id="mydiv"></div>
+	<div class="result"></div>
+
+	<div id="log"></div>
+
 	<h1 id="mainTitle">Hello World</h1>
 	<h1 class="nodata" data-x="something">Hello World2</h1>
 	<h1>Hello World3</h1>
@@ -42,13 +47,12 @@
 		<input type="submit" value="Submit">
 	</form>
 
-
-	<div id="mydiv"></div>
-
 	<a href="#1">Hello</a>
 	<a href="#2">World</a>
 	<a href="#3">Pooman</a>
 
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
 
 	<button id="mybutton1">Click me 1</button>
@@ -276,7 +280,46 @@
 
 		/////////////////////////
 
-		jQuery.get("dummy.txt", alert);
+		// $("#mydiv").load("dummy.txt");
+		
+		// $.get( "dummy.txt", function( data ) {
+		//   $( ".result" ).html( data );
+		//   alert( "Load was performed." );
+		// });
+
+		/////////////////////////
+
+		// function test() {
+		//   jQuery.globalEval( "class Vehicle { constructor() {this.passengers = [];console.log('Vehicle created'); }addPassenger(p) { this.passengers.push(p);} }class Car extends Vehicle { constructor() {super();console.log('Car created'); }deployAirbags() { console.log('BWOOSH!');}}" );
+		// }
+		// test();
+
+		/////////////////////////
+
+		var object1 = {
+		  apple: 0,
+		  banana: { weight: 52, price: 100 },
+		  cherry: 97
+		};
+		var object2 = {
+		  banana: { price: 200 },
+		  durian: 100
+		};
+		 
+		// Merge object2 into object1
+		$.extend( object1, object2 );
+		 
+		// Assuming JSON.stringify - not available in IE<8
+		$( "#log" ).append( JSON.stringify( object1 ) );
+
+		/////////////////////////
+
+		var paras = $("p"); 
+		console.log(paras.first())
+		console.log(paras.last())
+		console.log(paras.eq(1))
+		console.log(paras.eq(-2))
+		console.log(paras[1])
 
 	</script>
 </body>
