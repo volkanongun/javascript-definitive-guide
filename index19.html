@@ -13,6 +13,13 @@
 	<h1>Hello World3</h1>
 	<h2 class="removed">Hello World</h2>
 
+	<div id="message" style="display: none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus fugit cupiditate, exercitationem officiis nisi repellat velit sit, voluptatem sed repellendus, qui cum quam dolorem sint mollitia expedita harum dolore quasi.</div>
+
+	<img src="logo.png" id="logo" >
+	<img src="logo.png" id="logo2" style="display: none" >
+	<img src="logo.png" id="logo3">
+	<img src="logo.png" id="logo4">
+
 	<button id="mybutton">Click me</button>
 	
 	<form name="shipping_address" id="address">
@@ -34,9 +41,7 @@
 
 		<input type="submit" value="Submit">
 	</form>
-	
-	<img src="logo.png" id="logo" >
-	<img src="logo.png" id="logo2" style="display: none" >
+
 
 	<div id="mydiv"></div>
 
@@ -234,11 +239,44 @@
 		
 		/////////////////////////
 
-		$("#logo2").fadeIn(500)
-			.animate({"width":"+=100"}, {queue:false, duration:1000}) 
-			.fadeOut(500);
+		// $("#logo2").fadeIn(500)
+		// 	.animate({"width":"+=100"}, {queue:false, duration:1000}) 
+		// 	.fadeOut(500);
 
 		/////////////////////////
+
+		// $("img#logo3").animate({"width":"+=100"}, {duration: 500, easing:"linear"});
+		// $("img#logo3").animate({"width":"+=100"}, 500, "linear");
+		
+		/////////////////////////
+
+		// $("img#logo4").bind({
+		// 	mouseover: function() { $(this).stop().fadeTo(300, 1.0); },
+		// 	mouseout: function() { $(this).stop().fadeTo(300, 0.5); } 
+		// });
+
+		/////////////////////////
+
+		// $("#message").fadeIn().delay(200).queue(function(next) {
+		// 	$(this).text("Hello World"); // Display some text
+		// 	console.log(next, " ∆")
+		// 	next(); // Run the next item on the queue 
+		// }).animate({borderWidth: "+=10px;"}); // Grow its border
+		
+		/////////////////////////
+
+		// cors'a takılıyor. server lazım
+		// $("#mydiv").load("tobeloaded.html")
+
+		/////////////////////////
+
+		// jQuery.getJSON("https://jsonplaceholder.typicode.com/posts", function(data) {
+		// 	console.log(data)
+		// });
+
+		/////////////////////////
+
+		jQuery.get("dummy.txt", alert);
 
 	</script>
 </body>
