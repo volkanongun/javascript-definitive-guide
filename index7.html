@@ -111,6 +111,115 @@
 
 		// console.log(m);
 
+		////////////////////////
+
+		// const arr=[1,2,3,4,5]; 
+		// console.log(arr.slice(3))
+		// console.log(arr.slice(2, 4))
+		// console.log(arr.slice(-2))
+		// console.log(arr.slice(1, -2))
+		// console.log(arr.slice(-2, -1))
+		
+		////////////////////////
+
+		// const o = { name: "Jerry" };
+		// const arr = [1, 5, "a", o, true, 5, [1, 2], "9"];
+		// console.log(arr.indexOf(5));
+		// console.log(arr.lastIndexOf(5));
+		// console.log(arr.indexOf("a"));
+		// console.log(arr.lastIndexOf("a"));
+		// console.log(arr.indexOf({ name: "Jerry" }));
+		// console.log(arr.indexOf(o));
+		// console.log(arr.indexOf("9"));
+		// console.log(arr.indexOf(9));
+		
+		////////////////////////
+
+		// class Person { 
+		// 	constructor(name) {
+		// 		this.name = name;
+		// 		this.id = Person.nextId++;
+		// 	}
+		// }
+
+		// Person.nextId = 0;
+		
+		// const jamie = new Person("Jamie"),
+		// 		juliet = new Person("Juliet"), 
+		// 		peter = new Person("Peter"), 
+		// 		jay = new Person("Jay");
+
+		// const arr = [jamie, juliet, peter, jay];
+
+		// console.log(arr.find(person => person.id === juliet.id), " ∆")
+
+		////////////////////////
+
+		// const cart = [ { 
+		// 		name: "Widget", 
+		// 		price: 9.95 
+		// 	}, { 
+		// 		name: "Gadget", 
+		// 		price: 22.95 
+		// 	}];
+		// const names = cart.map(x => x.name);
+		// const prices = cart.map(x => x.price);
+		// const discountPrices = prices.map(x => x*0.8); 
+		// const lcNames = names.map(x => x.toLowerCase());
+
+		// console.log(names)
+		// console.log(prices)
+		// console.log(discountPrices)
+		// console.log(lcNames)
+		
+		////////////////////////
+
+		// const cards = [];
+		// for(let color of ["Red", "Black"])
+		// 	for(let suit of ['H', 'C', 'D', 'S'])
+		// 		for(let value=1; value<=13; value++)
+		// 			cards.push({ suit, value, color });
+
+		// console.log(cards, " ∆")
+
+		////////////////////////
+
+		// const cards = [];
+		// for(let color of ["Red", "Black"])
+		// 	for(let suit of ['H', 'C', 'D', 'S'])
+		// 		for(let value=1; value<=13; value++)
+		// 			cards.push({ suit, value, color });
+
+		// console.log(cards.filter(c => c.suit === 'D'));
+
+		// console.log(cards.filter(c => c.value > 10));
+
+		// console.log(cards.filter(c => c.value > 10 && c.suit === 'H'));
+		
+		////////////////////////
+
+		// const cards = [];
+		// for(let suit of ['H', 'C', 'D', 'S'])
+		// 	for(let value=1; value<=13; value++)
+		// 		cards.push({ suit, value });
+
+		// function cardToString(c) {
+		// 	const suits = { 'H': '\u2665', 'C': '\u2663', 'D': '\u2666', 'S': '\u2660' }; 
+		// 	const values = { 1: 'A', 11: 'J', 12: 'Q', 13: 'K' };
+		// 	for(let i=2; i<=10; i++) values[i] = i;
+			
+		// 	return values[c.value] + suits[c.suit];
+		// }
+
+		// console.log(cards.filter(c => c.value === 2)
+		// 			.map(cardToString));
+
+		// console.log(cards.filter(c => c.value > 10 && c.suit === 'H')
+		// 			.map(cardToString));
+		
+		////////////////////////
+
+		
 	</script>
 </body>
 </html>

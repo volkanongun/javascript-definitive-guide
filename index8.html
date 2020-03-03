@@ -374,6 +374,128 @@
 		// console.log(q())
 		
 		/////////////////////////
+
+		////////////////////////
+
+		// function getGreeting() { 
+		// 	return console.log("Hello world!");
+		// }
+
+		// const o = {};
+		// o.f = getGreeting;
+		// o.f();
+
+		// const arr = [1, 2, 3];
+		// arr[1] = getGreeting; 
+		// arr[1]()
+
+		/////////////////////////
+
+		// function getSentence({ subject, verb, object }) { 
+		// 	return `${subject} ${verb} ${object}`;
+		// }
+
+		// const o = {
+		// 	subject: "I",
+		// 	verb: "love", 
+		// 	object: "JavaScript",
+		// };
+
+		// console.log(getSentence(o));
+
+		/////////////////////////
+
+		// function getSentence([ subject, verb, object ]) { 
+		// 	return `${subject} ${verb} ${object}`;
+		// }
+
+		// const arr = [ "I", "love", "JavaScript" ];
+
+		// console.log(getSentence(arr));
+		
+		/////////////////////////
+
+		// function f(a, b = "default", c = 3) {
+		// 	console.log(arguments, " ∆")
+		// 	return `${a} - ${b} - ${c}`;
+		// }
+		
+		// console.log(f(5, 6, 7));
+		// console.log(f(5, 6));
+		// console.log(f(5));
+		// console.log(f());
+
+		/////////////////////////
+
+		// const o={
+		// 	name: 'Julie', 
+		// 	greetBackwards: function() {
+		// 	const self = this; 
+		// 	function getReverseName() {
+		// 		let nameBackwards = '';
+		// 		for(let i=self.name.length-1; i>=0; i--) {
+		// 			nameBackwards += self.name[i];
+		// 		}
+		// 		return nameBackwards; 
+		// 	}
+			
+		// 	return `${getReverseName()} si eman ym ,olleH`; },
+		// }; 
+
+		// console.log(o.greetBackwards());
+
+		// const bruce = { name: "Bruce" }; 
+		// const madeline = { name: "Madeline" };
+
+		// function greet() {
+		// 	return `Hello, I'm ${this.name}!`; 
+		// }
+		
+		// console.log(greet(), " ∆")
+		// console.log(greet.call(bruce), " ∆")
+		// console.log(greet.call(madeline), " ∆")
+
+		/////////////////////////
+
+		// const bruce = { name: "Bruce" }; 
+		// const madeline = { name: "Madeline" };
+
+		// function update(birthYear, occupation) { 
+		// 	this.birthYear = birthYear; 
+		// 	this.occupation = occupation;
+
+		// 	return {name:this.name, birthYear: this.birthYear, occupation: this.occupation};
+		// }
+
+		// console.log(update.call(bruce, 1949, 'singer'));
+		// console.log(update.call(madeline, 1942, 'actress'));
+
+		/////////////////////////
+
+		// const bruce = { name: "Bruce" }; 
+		// const madeline = { name: "Madeline" };
+
+		// function update(birthYear, occupation) { 
+		// 	this.birthYear = birthYear; 
+		// 	this.occupation = occupation;
+
+		// 	return {name:this.name, birthYear: this.birthYear, occupation: this.occupation};
+		// }
+
+		// console.log(update.apply(bruce, [1955, "actor"]));
+		// console.log(update.apply(madeline, [1918, "writer"]));
+
+		/////////////////////////
+
+		// const x = 3; function f() {
+		// 	console.log(x); // this will work
+		// 	console.log(y); // this will cause a crash 
+		// }
+		
+		// const y = 3; 
+		// f();
+		
+		/////////////////////////
 	</script>
 </body>
 </html>
