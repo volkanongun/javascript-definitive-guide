@@ -5,6 +5,303 @@
 	<title>3</title>
 </head>
 <body>
+	<script>
+
+		// scope = "global"; 
+
+		// function checkscope2() {
+		// 	scope = "local";
+		// 	myscope = "local"; 
+		// 	return [scope, myscope];
+		// } 
+
+		// console.log(checkscope2())
+		// console.log(scope,myscope)
+
+		/////////////////////////
+
+		// var scope = "global scope"; 
+
+		// function checkscope() {
+		// 	var scope = "local scope"; 
+		// 	function nested() {
+		// 		var scope = "nested scope"; 
+		// 		return scope;
+		// 	}
+		// 	return nested();
+		// }
+
+		// console.log(checkscope())
+
+		/////////////////////////
+
+		// function test(o) { 
+		// 	var i = 0;
+		// 	if (typeof o == "object") { 
+		// 		var j = 0;
+		// 		for(var k=0; k < 10; k++) { 
+		// 			console.log(k, " k1");
+		// 		}
+		// 		console.log(k, "k2");
+		// 	}
+		// 	console.log(j, " j");
+		// }
+		// console.log(test({appe:4, banana:5}))
+
+		/////////////////////////
+
+		// var scope = "global"; 
+		// function f() {
+		// 	console.log(scope); // Prints "undefined", not "global"
+		// 	var scope = "local"; // Variable initialized here, but defined everywhere 
+		// 	console.log(scope); // Prints "local"
+		// }
+
+		// f()
+
+		/////////////////////////
+
+		// function f() {
+		// 	var scope;
+		// 	console.log(scope);
+		// 	scope = "local";
+		// 	console.log(scope);
+		// }
+
+		// f();
+
+		/////////////////////////
+
+		// function f(x) { 
+		// 	return x + 3;
+		// }
+		// f(5); // 8
+		// console.log(x);
+
+		/////////////////////////
+
+		// let name = "Irena"; 
+		// let age = 25;
+		// function greet() { 
+		// 	console.log(`Hello, ${name}!`);
+		// }
+		// function getBirthYear() {
+		// 	return new Date().getFullYear() - age;
+		// }
+		// greet()
+		// console.log(getBirthYear())
+		
+		/////////////////////////
+
+		// let user = {
+		// 	name : "Irena",
+		// 	age : 25, 
+		// };
 	
+		// function greet(user) {
+		// 	return `Hello, ${user.name}!`;
+		// }
+		
+		// function getBirthYear(user) {
+		// 	return new Date().getFullYear() - user.age; 
+		// }
+
+		// console.log(greet(user), " < USER")
+		// console.log(getBirthYear(user), " BIRTH")
+		
+		/////////////////////////
+
+		// const message = (function() {
+		// 	const secret = "I'm a secret!";
+		// 	return `The secret is ${secret.length} characters long.`;
+		// })(); 
+		// console.log(message);
+
+		/////////////////////////
+
+		// const f = (function() { 
+		// let count = 0; return function() {
+		// 	return `I have been called ${++count} time(s).`; }
+		// })();
+
+		// console.log(f())
+		// console.log(f())
+		// console.log(f())
+		// console.log(f())
+		// console.log(f())
+
+		/////////////////////////
+
+		// if(x !== 3) {
+		// 	console.log(y, " < Y");
+		// 	var y = 5;
+		// 	if(y === 5) { 
+		// 		var x = 3;
+		// 	}
+		// 	console.log(y, " < Y2");
+		// }
+
+		// if(x === 3) {
+		// 	console.log(y, " Y3");
+		// }
+
+		/////////////////////////
+
+		// var x = 3; 
+		// if(x === 3) {
+		// 	var x = 2;
+		// 	console.log(x);
+		// }
+		// console.log(x);
+
+		/////////////////////////
+
+		// f(); // logs "f" 
+		// function f() {
+		// 	console.log('f');
+		// }
+
+		/////////////////////////
+		
+		// f(); // error
+		// let f = function() {
+		// 	console.log('f');
+		// }
+		
+		/////////////////////////
+
+		// console.log(Math.floor(Math.random() * 100000000))
+
+		/////////////////////////
+
+		// function rand(m, n) {
+		// 	return m + Math.floor((n - m + 1)*Math.random());
+		// }
+		
+		// // randomly returns a string representing one of the six // Crown and Anchor faces
+		// function randFace() {
+		// 	return ["crown", "anchor", "heart", "spade", "club", "diamond"] [rand(0, 5)];
+		// }
+
+		// console.log(randFace())
+
+		/////////////////////////
+
+		// fibonacci numbers
+		// for(let temp,i=0,j=1;j<30;temp=i,i=j,j=i+temp) 
+		// 	console.log(j);
+
+		/////////////////////////
+
+		// const player = { name: 'Thomas', rank: 'Midshipman', age: 25 }; 
+		// for(let prop in player) {
+		// 	if(!player.hasOwnProperty(prop)) continue; // see explanation below
+		// 	console.log(prop + ': ' + player[prop]); 
+		// }
+
+		/////////////////////////
+
+		// const s = "5";
+		// const y = 3 + +s;
+		// console.log(y)
+
+		/////////////////////////
+
+		// let x = 2;
+		// let y = 3;
+		// x++;
+		// console.log(x)
+		// ++x;
+		// console.log(x)
+
+		// console.log(x++ + ++x)
+
+		/////////////////////////
+
+		// let x = 3,y;
+		// x += y = 6*5/2;
+
+		// console.log(x)
+
+		/////////////////////////
+
+		// const obj={b:2,c:3,d:4};
+  //   	// object destructuring assignment
+		// const {a, b, c} = obj;
+		// console.log(a,b,c)
+
+		/////////////////////////
+
+		// console.log(typeof undefined )
+		// console.log(typeof null )
+		// console.log(typeof {} )
+		// console.log(typeof true )
+		// console.log(typeof 1)
+		// console.log(typeof "string")
+		// console.log(typeof Symbol() )
+		// console.log(typeof function() {})
+
+		/////////////////////////
+
+		// const arr = [1, 2, 3];
+		// let [x, y] = arr;
+		// console.log(x,y)
+
+		/////////////////////////
+
+		// let options;
+		// options = options || {};
+		// console.log(options)
+
+		/////////////////////////
+
+		// function getGreeting() { 
+		// 	return console.log("Hello world!");
+		// }
+
+		// const o = {};
+		// o.f = getGreeting;
+		// o.f();
+
+		// const arr = [1, 2, 3];
+		// arr[1] = getGreeting; 
+		// arr[1]()
+
+		/////////////////////////
+
+		// function getSentence({ subject, verb, object }) { 
+		// 	return `${subject} ${verb} ${object}`;
+		// }
+
+		// const o = {
+		// 	subject: "I",
+		// 	verb: "love", 
+		// 	object: "JavaScript",
+		// };
+
+		// console.log(getSentence(o));
+
+		/////////////////////////
+
+		// function getSentence([ subject, verb, object ]) { 
+		// 	return `${subject} ${verb} ${object}`;
+		// }
+
+		// const arr = [ "I", "love", "JavaScript" ];
+
+		// console.log(getSentence(arr));
+		
+		/////////////////////////
+
+		function f(a, b = "default", c = 3) { 
+			return `${a} - ${b} - ${c}`;
+		}
+		
+		console.log(f(5, 6, 7));
+		console.log(f(5, 6));
+		console.log(f(5));
+		console.log(f());
+
+	</script>
 </body>
 </html>
