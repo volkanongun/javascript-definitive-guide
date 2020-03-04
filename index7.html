@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>7</title>
+	<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
 </head>
 <body>
 	<script>
@@ -219,6 +220,12 @@
 		
 		////////////////////////
 
+		/**
+		|--------------------------------------------------
+		| MAP
+		|--------------------------------------------------
+		*/
+
 		// const u1 = { name: 'Cynthia' }; 
 		// const u2 = { name: 'Jackson' }; 
 		// const u3 = { name: 'Olive' }; 
@@ -262,6 +269,12 @@
 
 		////////////////////////
 
+		/**
+		|--------------------------------------------------
+		| WEAKMAP
+		|--------------------------------------------------
+		*/
+
 		// const SecretHolder = (function() { 
 		// 	const secrets = new WeakMap(); 
 		// 	return class {
@@ -282,8 +295,108 @@
 		// console.log(a.getSecret())
 		// console.log(b.getSecret())
 		
+		////////////////////////
+
+		/**
+		|--------------------------------------------------
+		| ITERATORS
+		|--------------------------------------------------
+		*/
+
+		// const book = [
+		// 	"Twinkle, twinkle, little bat!", 
+		// 	"How I wonder what you're at!", 
+		// 	"Up above the world you fly,", 
+		// 	"Like a tea tray in the sky.", 
+		// 	"Twinkle, twinkle, little bat!", 
+		// 	"How I wonder what you're at!",
+		// ];
+
+		// const it = book.values();
+		// console.log(it, " ∆")
+
+		// // console.log(it.next());
+		// // console.log(it.next());
+		// // console.log(it.next());
+		// // console.log(it.next());
+		// // console.log(it.next());
+		// // console.log(it.next());
+		// // console.log(it.next());
+
+		// let current = it.next();
+		
+		// while(!current.done) {
+		// 	console.log(current.value);
+		// 	current = it.next(); 
+		// }
+
+		// console.log(current.done, " ∆")
+
+		// const it1 = book.values(); 
+		// const it2 = book.values();
+
+		// console.log(it1.next())
+		// console.log(it1.next())
+		// console.log(it2.next())
 
 		////////////////////////
+
+		/*==================================
+		=            GENERATORS            =
+		==================================*/
+		
+		// function* rainbow() { 
+		// 	yield 'red';
+		// 	yield 'orange'; 
+		// 	yield 'yellow'; 
+		// 	yield 'green'; 
+		// 	yield 'blue'; 
+		// 	yield 'indigo'; 
+		// 	yield 'violet';
+		// }
+
+		// const it = rainbow();
+		
+		// console.log(it.next())
+		// console.log(it.next())
+		// console.log(it.next())
+		// console.log(it.next())
+		// console.log(it.next())
+		// console.log(it.next())
+		// console.log(it.next())
+		// console.log(it.next())
+
+		///////////////////////////
+
+		// function* interrogate() {
+		// 	const name = yield "What is your name?";
+		// 	const color = yield "What is your favorite color?"; 
+		// 	return `${name}'s favorite color is ${color}.`;
+		// }
+
+		// const it = interrogate();
+		// console.log(it.next());
+		// console.log(it.next('Ethan'));
+		// console.log(it.next('orange'));
+
+		// function* abc() { 
+		// 	yield 'a';
+		// 	yield 'b';
+		// 	return 'c'; 
+		// }
+
+		// const it = abc();
+		// // console.log(it.next())
+		// // console.log(it.next())
+		// // console.log(it.next())
+
+		// for(let l of abc()) { 
+		// 	console.log(l);
+		// }
+		
+		/*=====  End of GENERATORS  ======*/
+		
 	</script>
 </body>
+
 </html>
