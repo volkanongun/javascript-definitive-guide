@@ -179,50 +179,188 @@
 		
 		/////////////////////////
 
-		class Vehicle { 
-			constructor() {
-				this.passengers = [];
-				console.log("Vehicle created"); 
-			}
-			addPassenger(p) { 
-				this.passengers.push(p);
-			} 
-		}
+		// class Car { 
+		// 	constructor(make, model) {
+		// 		this.make = make;
+		// 		this.model = model;
+		// 		this.userGears = ['P', 'N', 'R', 'D']; 
+		// 		this.userGear = this.userGears[0];
+		// 	}
+			
+		// 	shift(gear) {
+		// 		if(this.userGears.indexOf(gear) < 0)
+		// 			throw new Error(`Invalid gear: ${gear}`);
+		// 		this.userGear = gear; 
+		// 	}
+		// }
+
+		// const car1 = new Car("Tesla", "Model S"); 
+		// const car2 = new Car("Mazda", "3i"); 
+		// car1.shift('D');
+		// car2.shift('R');
+
+		// console.log(car1 instanceof Car )
+		// console.log(car1 instanceof Array)
 		
-		class Car extends Vehicle { 
-			constructor() {
-				super();
-				console.log("Car created"); 
-			}
-			deployAirbags() { 
-				console.log("BWOOSH!");
-			}
-		 }
+		/////////////////////////
 
-		 const v = new Vehicle(); 
-		 v.addPassenger("Frank"); 
-		 v.addPassenger("Judy"); 
-		 console.log(v.passengers);
+		// class Car { 
+		// 	constructor(make, model) {
+		// 		this.make = make;
+		// 		this.model = model;
+		// 		this._userGears = ['P', 'N', 'R', 'D']; 
+		// 		this._userGear = this._userGears[0];
+		// 	}
+			
+		// 	get userGear() { return this._userGear; } 
+		// 	set userGear(value) {
+		// 		if(this._userGears.indexOf(value) < 0)
+		// 			throw new Error(`Invalid gear: ${value}`);
+		// 		this._userGear = value; 
+		// 	}
 
-		 const c = new Car(); 
-		 c.addPassenger("Alice"); 
-		 c.addPassenger("Cameron"); 
-		 console.log(c.passengers);
+		// 	shift(gear) { this.userGear = gear; } 
+		// }
 
-		 // v.deployAirbags(); throws error
-		 c.deployAirbags();
+		// var car1 = new Car()
+		// console.log(car1, " ∆")
+		// car1.shift("D")
+		// console.log(car1.userGear, " ∆")
 
-		 // polymorphism
+		/////////////////////////
 
-		 class Motorcycle extends Vehicle {} 
-		 const ca = new Car();
-		const m = new Motorcycle();
+		// class Car { 
+		// 	constructor(make, model) {
+		// 		this.make = make;
+		// 		this.model = model;
+		// 		this._userGears = ['P', 'N', 'R', 'D']; 
+		// 		this._userGear = this._userGears[0];
+		// 	}
+			
+		// 	get userGear() { return this._userGear; } 
+		// 	set userGear(value) {
+		// 		if(this._userGears.indexOf(value) < 0)
+		// 			throw new Error(`Invalid gear: ${value}`);
+		// 		this._userGear = value; 
+		// 	}
 
-		console.log(ca instanceof Car)
-		console.log(ca instanceof Vehicle)
-		console.log(m instanceof Car)
-		console.log(m instanceof Motorcycle)
-		console.log(m instanceof Vehicle)
+		// 	shift(gear) { this.userGear = gear; } 
+		// }
+
+		// const car1 = new Car();
+		// const car2 = new Car();
+
+		// console.log(car1.shift === Car.prototype.shift)
+		// car1.shift('D');
+		// // car1.shift('d'); // throws error
+		// console.log(car1.userGear);
+		// console.log(car1.shift === car2.shift)
+		// car1.shift = function(gear) { this.userGear = gear.toUpperCase(); }
+		// console.log(car1.shift === Car.prototype.shift)
+		// console.log(car1.shift === car2.shift)
+		// car1.shift('d');
+		// console.log(car1.userGear);
+
+		/////////////////////////
+
+		// class Vehicle { 
+		// 	constructor() {
+		// 		this.passengers = [];
+		// 		console.log("Vehicle created"); 
+		// 	}
+		// 	addPassenger(p) { 
+		// 		this.passengers.push(p);
+		// 	} 
+		// }
+
+		// class Car extends Vehicle { 
+		// 	constructor() {
+		// 		super();
+		// 		console.log("Car created"); 
+		// 	}
+		// 	deployAirbags() { 
+		// 		console.log("BWOOSH!");
+		// 	}
+		//  }
+
+		//  const v = new Vehicle(); 
+		//  v.addPassenger("Frank"); 
+		//  v.addPassenger("Judy"); 
+		//  console.log(v.passengers);
+
+		//  const c = new Car(); 
+		//  c.addPassenger("Alice"); 
+		//  c.addPassenger("Cameron"); 
+		//  console.log(c.passengers);
+
+		//  // v.deployAirbags(); throws error
+		//  c.deployAirbags();
+
+		//  polymorphism
+
+		//  class Motorcycle extends Vehicle {} 
+		//  const ca = new Car();
+		// const m = new Motorcycle();
+
+		// console.log(ca instanceof Car)
+		// console.log(ca instanceof Vehicle)
+		// console.log(m instanceof Car)
+		// console.log(m instanceof Motorcycle)
+		// console.log(m instanceof Vehicle)
+
+		/////////////////////////
+
+		// class Super { 
+		// 	constructor() {
+		// 		this.name = 'Super';
+		// 		this.isSuper = true; 
+		// 	}
+		// }
+
+		// class Sub extends Super { 
+		// 	constructor() {
+		// 		super(); 
+		// 		this.name = 'Sub'; 
+		// 		this.isSub = true;
+		// 	} 
+		// }
+		
+		// const obj = new Sub();
+
+		// for(let p in obj) { 
+		// 	console.log(`${p}: ${obj[p]}` + (obj.hasOwnProperty(p) ? '' : ' (inherited)')); 
+		// }
+
+		/////////////////////////
+
+		// function validateEmail(email) { 
+		// 	return email.match(/@/) ? email : new Error(`invalid email: ${email}`);
+		// }
+
+		// const email = "jane@doe.com";
+
+		// const validatedEmail = validateEmail(email); 
+
+		// if(validatedEmail instanceof Error) {
+		// 	console.error(`Error: ${validatedEmail.message}`); 
+		// } else {
+		// 	console.log(`Valid email: ${validatedEmail}`); 
+		// }
+
+		/////////////////////////
+
+		// const email = ""; // whoops
+		// try {
+		// 	const validatedEmail = validateEmail(email); 
+		// 	if(validatedEmail instanceof Error) {
+		// 		console.error(`Error: ${validatedEmail.message}`); 
+		// 	} else {
+		// 		console.log(`Valid email: ${validatedEmail}`); 
+		// 	}
+		// } catch(err) {
+		// 	console.error(`Error: ${err.message}`);
+		// }
+
 	</script>
 </body>
 </html>
