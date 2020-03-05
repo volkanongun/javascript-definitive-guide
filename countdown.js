@@ -9,14 +9,13 @@ class Countdown extends EventEmitter {
 
 	go() {
 		const countdown = this;
+		const timeoutIds = [];
 		return new Promise(function(resolve, reject) {
-			for(let i=countdown.seconds; i>=0; i--) { 
-				setTimeout(function() {
-					if(countdown.superstitious && i===13)
-						return reject(new Error("DEFINITELY NOT COUNTING THAT"));
+			for(let i=countdown.seconds; i>=0; i--) {
+				timeoutIds.push(setTimeout(function() {
 					countdown.emit('tick', i);
 					if(i===0) resolve();
-				}, (countdown.seconds-i)*1000);
+				}, (countdown.seconds-i)*1000))
 			} 
 		});
 	} 
