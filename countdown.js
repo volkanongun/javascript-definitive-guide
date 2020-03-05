@@ -28,9 +28,20 @@ c.on('tick', function(i) {
 });
 
 c.go()
-	.then(function() {
-		console.log('GO!'); 
+	.then(launch)
+	.then(function(msg) {
+		console.log(msg); 
 	})
-	.catch(function(err) { 
-		console.error(err.message);
+	.catch(function(err) {
+		console.error("Houston, we have a problem....");
 	})
+
+function launch() {
+	return new Promise(function(resolve, reject) {
+		console.log("Lift off!"); 
+		setTimeout(function() {
+			resolve("In orbit!");
+		}, 2*1000); // a very fast rocket indeed
+	}); 
+}
+
