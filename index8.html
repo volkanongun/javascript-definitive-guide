@@ -496,6 +496,92 @@
 		// f();
 		
 		/////////////////////////
-	</script>
+
+		// function sum(arr, f) {
+		// 	console.log(typeof f)
+		// 	if(typeof f != 'function') f = x => x;
+		// 	return arr.reduce((a, x) => a += f(x), 0); 
+		// }
+
+		// console.log(sum([1, 2, 3]));
+		// console.log(sum([1, 2, 3], x => x*x));
+		// console.log(sum([1, 2, 3], x => Math.pow(x, 3)));
+
+		/////////////////////////
+
+		/*=================================
+		=            recursion            =
+		=================================*/
+		
+		// function findNeedle(haystack) {
+		// 	if(haystack.length === 0) return console.log("no haystack here!");
+		// 	if(haystack.shift() === 'needle') return console.log("found it!")
+		// 	return findNeedle(haystack); // haystack has one fewer element
+  //   	}
+    	
+  //   	findNeedle(['hay', 'hay', 'hay', 'hay', 'needle', 'hay', 'hay']);
+		
+		/*=====  End of recursion  ======*/
+
+		/////////////////////////
+
+		// console.log("Before timeout: " + new Date()); 
+		// function f() {
+		// 	console.log("After timeout: " + new Date());
+		// }
+		// setTimeout(f, 2*1000); // one minute 
+		// console.log("I happen after setTimeout!"); 
+		// console.log("Me too!");
+		
+		/////////////////////////
+
+		// const start = new Date();
+		// let i=0;
+		// const intervalId = setInterval(function() {
+		// 	let now = new Date();
+		// 	if(now.getMinutes() !== start.getMinutes() || ++i>10)
+		// 		return clearInterval(intervalId); 
+		// 	console.log(`${i}: ${now}`);
+		// }, 5*1000);
+
+		/////////////////////////
+
+		// function countdown() {
+		// 	console.log("Countdown:");
+		// 	for(let i=5; i>=0; i--) { // i is now block-scoped
+		// 		setTimeout(function() { 
+		// 			console.log(i===0 ? "GO!" : i);
+		// 		}, (5-i)*1000); 
+		// 	}
+  //   	}
+	 //    countdown();
+
+		/*================================
+		=            Promises            =
+		================================*/
+		
+		function countdown(seconds) {
+			return new Promise(function(resolve, reject) {
+				for(let i=seconds; i>=0; i--) { 
+					setTimeout(function() {
+						if(i>0) 
+							console.log(i + '...');
+						else 
+							resolve(console.log("GO!")); 
+					}, (seconds-i)*1000);
+				} 
+			});
+		}
+
+		countdown(10).then( function() {
+			console.log("countdown completed successfully"); },
+		function(err) {
+			console.log("countdown experienced an error: " + err.message);
+		});
+					
+		/*=====  End of Promises  ======*/
+					
+		</script>
+
 </body>
 </html>
