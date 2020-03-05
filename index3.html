@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>3</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
 	<script>
@@ -254,6 +255,77 @@
 		// console.log(options)
 
 		/////////////////////////
+
+		// console.log(new Date(2015, 0)) // january 0
+		// console.log(new Date(2015, 1)) // February 1
+		// console.log(new Date(2015, 1, 14)) // 
+		// console.log(new Date(2015, 1, 14, 13)) // 
+		// console.log(new Date(2015, 1, 14, 13, 30)) // 
+		// console.log(new Date(2015, 1, 14, 13, 30, 5)) // 
+		// console.log(new Date(2015, 1, 14, 13, 30, 5, 500)) // 
+
+		/////////////////////////
+
+		/*=================================
+		=            Moment js            =
+		=================================*/
+		
+		// const d = new Date(Date.UTC(1930, 4, 10));
+		// console.log(d.toLocaleDateString())
+		// // console.log(d.toLocaleFormat())
+		// console.log(d.toLocaleTimeString())
+		// console.log(d.toTimeString())
+		// console.log(d.toUTCString())
+
+		// console.log(moment(d).format("YYYY-MM-DD"))
+		// console.log(moment(d).format("YYYY-MM-DD HH:mm"))
+		// console.log(moment(d).format("YYYY-MM-DD HH:mm Z"))
+		// console.log(moment(d).format("YYYY-MM-DD HH:mm [UTC]Z"))
+		// console.log(moment(d).format("dddd, MMMM [the] Do, YYYY"))
+
+		// console.log(moment(d).format("h:mm a"))
+
+		console.log(moment().subtract(10, 'seconds').fromNow())
+		console.log(moment().subtract(44, 'seconds').fromNow())
+		console.log(moment().subtract(45, 'seconds').fromNow())
+		console.log(moment().subtract(5, 'minutes').fromNow())
+		console.log(moment().subtract(44, 'minutes').fromNow())
+		console.log(moment().subtract(45, 'minutes').fromNow())
+		console.log(moment().subtract(5, 'hours').fromNow())
+		console.log(moment().subtract(21, 'hours').fromNow())
+		console.log(moment().subtract(22, 'hours').fromNow())
+		console.log(moment().subtract(344, 'days').fromNow())
+		console.log(moment().subtract(345, 'days').fromNow())
+		
+		/*=====  End of Moment js  ======*/
+		
+		// const d = new Date(Date.UTC(1815, 9, 10));
+		// console.log(d.getFullYear())
+		// console.log(d.getMonth())
+		// console.log(d.getDate())
+		// console.log(d.getDay())
+
+		// console.log(d.getHours())
+		// console.log(d.getMinutes())
+		// console.log(d.getSeconds())
+		// console.log(d.getMilliseconds())
+
+		/////////////////////////
+		
+		// const d1 = new Date(1996, 2, 1); 
+		// const d2 = new Date(2009, 4, 27);
+
+		// console.log(d1 > d2)
+		// console.log(d1 < d2)
+
+		// const msDiff = d2-d1
+		// console.log(msDiff)
+		// const daysDiff = msDiff/1000/60/60/24;
+		// console.log(daysDiff)
+
+		// console.log(new Date(2017, 0, 1).valueOf()) // unix epoch
+
+
 
 	</script>
 </body>

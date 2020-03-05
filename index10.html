@@ -12,49 +12,117 @@
 
 		/////////////////////////
 
-		var pattern = /s$/;
+		// var pattern = /s$/;
 
-		var pattern2 = new RegExp("s$");
-		console.log(pattern)
-		console.log(pattern2)
+		// var pattern2 = new RegExp("s$");
+		// console.log(pattern)
+		// console.log(pattern2)
 
-		var pattern3 = /\d{2,4}/;
+		// var pattern3 = /\d{2,4}/;
 
-		var pattern4 = /\w{3}\d?/ // 3 letter words with ootional ascii digit;
+		// var pattern4 = /\w{3}\d?/ // 3 letter words with ootional ascii digit;
 
-		var pattern5 = /\s+java\s+/; // space with java word
+		// var pattern5 = /\s+java\s+/; // space with java word
 
-		var pattern6 = /[^(]*/; // Match zero or more characters that are not open parenthesis
+		// var pattern6 = /[^(]*/; // Match zero or more characters that are not open parenthesis
 
-		var pattern7 = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/;
+		// var pattern7 = /([Jj]ava([Ss]cript)?)\sis\s(fun\w*)/;
 
-		var pattern8 = /(['"])[^'"]*\1/;
+		// var pattern8 = /(['"])[^'"]*\1/;
 
-		console.log("JavaScript".search(/script/i))
+		// console.log("JavaScript".search(/script/i))
 
-		var text = "javascript"
-		console.log(text.replace(/javascript/gi, "JavaScript"));
+		// var text = "javascript"
+		// console.log(text.replace(/javascript/gi, "JavaScript"));
 
-		console.log("1 plus 2 equals 3".match(/\d/g));
+		// console.log("1 plus 2 equals 3".match(/\d/g));
 
-		var url = /(\w+):\/\/([\w.]+)\/(\S*)/;
-		var text = "Visit my blog at http://www.example.com/~david"; 
-		var result = text.match(url);
-		console.log(result, " ∆")
-		if (result != null) {
-			var fullurl = result[0]; // Contains "http://www.example.com/~david" 
-			var protocol = result[1]; // Contains "http"
-			var host = result[2]; // Contains "www.example.com"
-			var path = result[3]; // Contains "~david"
-			console.log(fullurl, protocol, host, path)
-		}
+		// var url = /(\w+):\/\/([\w.]+)\/(\S*)/;
+		// var text = "Visit my blog at http://www.example.com/~david"; 
+		// var result = text.match(url);
+		// console.log(result, " ∆")
+		// if (result != null) {
+		// 	var fullurl = result[0]; // Contains "http://www.example.com/~david" 
+		// 	var protocol = result[1]; // Contains "http"
+		// 	var host = result[2]; // Contains "www.example.com"
+		// 	var path = result[3]; // Contains "~david"
+		// 	console.log(fullurl, protocol, host, path)
+		// }
 
 		/////////////////////////
 
-		const email = /\b[a-z0-9._-]+@[a-z_-]+(?:\.[a-z]+)+\b/; // email recognizer
+		// const email = /\b[a-z0-9._-]+@[a-z_-]+(?:\.[a-z]+)+\b/; // email recognizer
 
-		var zipcode = new RegExp("\\d{5}", "g");
+		// var zipcode = new RegExp("\\d{5}", "g");
 
+		/*========================================================
+		=            Learning Javascript 3rd edition             =
+		========================================================*/
+		
+		// const re1 = /going/;
+		// const re2 = new RegExp("going");
+		// console.log(re1);
+
+		// const input = "As I was going to Saint Ives"; 
+		// const re = /\w{3,}/ig;
+
+		// console.log(input.match(re));
+		// console.log(input.search(re));
+		// console.log(re.test(input));
+
+		/////////////////////////
+
+		// console.log(re.exec(input))
+		// console.log(re.exec(input))
+		// console.log(re.exec(input))
+		// console.log(re.exec(input))
+		// console.log(re.exec(input))
+
+		// console.log(input.match(/\w{3,}/ig))
+		// console.log(input.search(/\w{3,}/ig))
+		// console.log(/\w{3,}/ig.test(input))
+		// console.log(/\w{3,}/ig.exec(input))
+
+		// const html = 'HTML with <a href="/one">one link</a>, and some JavaScript.' + '<script src="stuff.js"></\script>';
+		// const matches = html.match(/area|a|link|script|source/ig);
+		// console.log(matches,"  ∆")
+
+		/////////////////////////
+
+		// const beer99 = "99 bottles of beer on the wall " + "take 1 down and pass it around -- " + "98 bottles of beer on the wall.";
+		// const matches = beer99.match(/0|1|2|3|4|5|6|7|8|9/g);
+		// console.log(matches," ∆")
+		// const m1 = beer99.match(/[0123456789]/g);
+		// console.log(m1)
+		// const m2 = beer99.match(/[0-9]/g);
+		// console.log(m2)
+
+		// const match = beer99.match(/[\-0-9a-z.]/ig);
+		// console.log(match)
+
+		/////////////////////////
+
+		const stuff =
+			'high: 9\n' + 
+			'medium: 5\n' + 
+			'low: 2\n';
+		const levels = stuff.match(/:\s*[0-9]/g);
+		console.log(levels)
+
+		/////////////////////////
+
+		const messyPhone = '(505) 555-1515';
+		const neatPhone = messyPhone.replace(/\D/g, '');
+		console.log(neatPhone, " ∆")
+		
+		/////////////////////////
+
+		const field=' something '; 
+		const valid = /\S/.test(field);
+		console.log(valid)
+
+		/*=====  End of Learning Javascript 3rd edition   ======*/
+		
 		
 	</script>
 </body>
