@@ -3,10 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>19</title>
-
+	<style>
+		.highlight{
+			color:cyan!important;
+		}
+	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+	
+	<div class="serverInfo">
+		Server is running on <span data-replace="platform">???</span> with Node 
+		<span data-replace="nodeVersion">???</span>. 
+		It has been up for <span data-replace="uptime">???</span> seconds.
+	</div>
 
 	<div id="mydiv"></div>
 	<div class="result"></div>
@@ -54,6 +64,8 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, eveniet aut minus. Sint enim rem ullam unde harum quia dignissimos recusandae magnam libero, ea, accusantium omnis asperiores obcaecati nesciunt vel.</p>
+	
+	<p class="highlight">Lorem ipsum dolor sit amet. <i class="code">Foobar</i></p>
 
 	<button id="mybutton1">Click me 1</button>
 	<button id="mybutton2">Click me 2</button>
@@ -296,30 +308,98 @@
 
 		/////////////////////////
 
-		var object1 = {
-		  apple: 0,
-		  banana: { weight: 52, price: 100 },
-		  cherry: 97
-		};
-		var object2 = {
-		  banana: { price: 200 },
-		  durian: 100
-		};
+		// var object1 = {
+		//   apple: 0,
+		//   banana: { weight: 52, price: 100 },
+		//   cherry: 97
+		// };
+		// var object2 = {
+		//   banana: { price: 200 },
+		//   durian: 100
+		// };
 		 
-		// Merge object2 into object1
-		$.extend( object1, object2 );
+		// // Merge object2 into object1
+		// $.extend( object1, object2 );
 		 
-		// Assuming JSON.stringify - not available in IE<8
-		$( "#log" ).append( JSON.stringify( object1 ) );
+		// // Assuming JSON.stringify - not available in IE<8
+		// $( "#log" ).append( JSON.stringify( object1 ) );
 
 		/////////////////////////
 
-		var paras = $("p"); 
-		console.log(paras.first())
-		console.log(paras.last())
-		console.log(paras.eq(1))
-		console.log(paras.eq(-2))
-		console.log(paras[1])
+		// var paras = $("p"); 
+		// console.log(paras.first())
+		// console.log(paras.last())
+		// console.log(paras.eq(1))
+		// console.log(paras.eq(-2))
+		// console.log(paras[1])
+
+		/*=======================================================
+		=            Learning Javascript 3rd Edition            =
+		=======================================================*/
+		
+		// const $paras = $('p'); 
+		// console.log($paras.length)
+		// console.log(typeof $paras)
+		// console.log($paras instanceof $)
+		// console.log($paras instanceof jQuery)
+
+		// const $newPara = $('<p>Newly created paragraph...</p>');
+		// $("body").append($newPara)
+		// $('p').html('<i>ALL</i> PARAGRAPHS REPLACED');
+
+		// $('p') // matches all paragraphs
+		// 	.eq(2) // third paragraph (zero-based indices) 
+		// 	.html('<i>THIRD</i> PARAGRAPH REPLACED');
+
+		// $('div').remove();
+
+		// // $('p').append('<sup>*</sup>');
+		// // $('p').after('<hr>').before('<hr>');
+		// // $('p:even').css('color', 'red');
+
+		// $('p') 
+		// 	.after('<hr>')
+		// 	.append('<sup>*</sup>') 
+		// 	.filter(':odd') 
+		// 	.css('color', 'red');
+
+		// $('p') 
+		// 	.after('<hr>')
+		// 	.not('.highlight') 
+		// 	.css('margin-left', '20px');
+
+		// $('p') 
+		// 	.before('<hr>')
+		// 	.find('.code') 
+		// 	.css('font-size', '30px');
+
+		// const paras = $('p').get();
+		// console.log(paras)
+
+		/////////////////////////
+
+		// function refreshServerInfo() {
+		// 	const $serverInfo = $('.serverInfo'); 
+		// 	console.log($serverInfo)
+		// 	$.get('http://localhost:7070').then(
+		// 		function(data) { 
+		// 			Object.keys(data).forEach(p => {
+		// 				console.log(p)
+		// 				$(`[data-replace="${p}"]`).text(data[p]); 
+		// 			});
+		// 		},
+		// 		function(jqXHR, textStatus, err) {
+		// 			console.error(err); 
+		// 			$serverInfo.addClass('error')
+		// 				.html('Error connecting to server.');
+		// 		}
+		// 	);
+		// }
+
+		// refreshServerInfo();
+		
+		/*=====  End of Learning Javascript 3rd Edition  ======*/
+		
 
 	</script>
 </body>
