@@ -8,6 +8,8 @@
 		/* CSS styles for this page */
 		.reveal * { display: none; } /* Children of class="reveal" are not shown */ 
 		.reveal *.handle { display: block;} /* Except for the class="handle" child */ 
+
+		.highlight { background: #ff0; font-style: italic;}
 	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -18,6 +20,11 @@
 	<div class="reveal">
 	<h1 class="handle">Click Here to Reveal Hidden Text</h1>
 	<p>This paragraph is hidden. It appears when you click on the title.</p> </div>
+	
+	<div id="content">
+		<p>This paragraph is <em>shown</em> intentionally.</p>
+		<p>This paragraph is <em>unique</em></p>
+	</div>
 
 	<h1>Digital Clock</h1>
 	<span id="clock"></span>
@@ -33,71 +40,163 @@
 		void 0;'>eval?</a>
 	<!-- evaluator -->
 
+	<button data-action="highlight" data-containing="unique"> 
+		Highlight paragraphs containing "unique"
+	</button>
+	<button data-action="removeHighlights">
+	        Remove highlights
+	</button>
+
+
 	<script>
 
 		/////////////////////////
 
-		var timestamp = document.getElementById("timestamp");
-		console.log(timestamp.firstChild)
+		// var timestamp = document.getElementById("timestamp");
+		// console.log(timestamp.firstChild)
 
-		if (timestamp.firstChild !== null)
-			timestamp.appendChild(document.createTextNode(new Date().toString()));
+		// if (timestamp.firstChild !== null)
+		// 	timestamp.appendChild(document.createTextNode(new Date().toString()));
 
-		timestamp.style.backgroundColor = "yellow";
-		timestamp.className = "highlight";
+		// timestamp.style.backgroundColor = "yellow";
+		// timestamp.className = "highlight";
 
 		/////////////////////////
 
-		timestamp.onclick = function() { this.innerHTML = new Date().toString(); }
+		// timestamp.onclick = function() { this.innerHTML = new Date().toString(); }
 		
 		/////////////////////////
 
-		window.onload = function() {
+		// window.onload = function() {
 
-			var elements = document.getElementsByClassName("reveal"); 
+		// 	var elements = document.getElementsByClassName("reveal"); 
 
-			for(var i = 0; i < elements.length; i++) { // For each one...
-				var elt = elements[i];
-				// Find the "handle" element with the container
-				var title = elt.getElementsByClassName("handle")[0];
+		// 	for(var i = 0; i < elements.length; i++) { // For each one...
+		// 		var elt = elements[i];
+		// 		// Find the "handle" element with the container
+		// 		var title = elt.getElementsByClassName("handle")[0];
 
-				// When that element is clicked, reveal the rest of the content 
-				title.onclick = function() {
-					if (elt.className == "reveal") elt.className = "revealed";
-					else if (elt.className == "revealed") elt.className = "reveal"; 
-				}
-			}
+		// 		// When that element is clicked, reveal the rest of the content 
+		// 		title.onclick = function() {
+		// 			if (elt.className == "reveal") elt.className = "revealed";
+		// 			else if (elt.className == "revealed") elt.className = "reveal"; 
+		// 		}
+		// 	}
 
-			/////////////////////////
+		// 	/////////////////////////
 
-			displayTime();
+		// 	displayTime();
 
-			console.log(document.readyState, " READY?");
+		// 	console.log(document.readyState, " READY?");
 
-		};
+		// };
 
-		function displayTime(){
-			var elt = document.getElementById("clock"); // Find element with id="clock"
-			var now = new Date();
-			elt.innerHTML = now.toLocaleTimeString(); 
-			setTimeout(displayTime, 1000);
-		}
+		// function displayTime(){
+		// 	var elt = document.getElementById("clock"); // Find element with id="clock"
+		// 	var now = new Date();
+		// 	elt.innerHTML = now.toLocaleTimeString(); 
+		// 	setTimeout(displayTime, 1000);
+		// }
 
 		/////////////////////////
 
-		loadasync("https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js");
+		// loadasync("https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js");
 
-		function loadasync(url) {
-			var head = document.getElementsByTagName("head")[0]; // Find document <head> 
-			var s = document.createElement("script"); // Create a <script> element 
-			s.src = url; // Set its src attribute 
-			head.appendChild(s); // Insert the <script> into head
+		// function loadasync(url) {
+		// 	var head = document.getElementsByTagName("head")[0]; // Find document <head> 
+		// 	var s = document.createElement("script"); // Create a <script> element 
+		// 	s.src = url; // Set its src attribute 
+		// 	head.appendChild(s); // Insert the <script> into head
+		// }
+
+		// console.log(document.readyState, " READY?");
+
+		// var name = decodeURIComponent(window.location.search.substring(1)) || ""; 
+		// console.log("Hello " + name);
+
+		/////////////////////////
+
+		/*=======================================================
+		=            Learning Javascript 3rd edition            =
+		=======================================================*/
+		
+		// function printDOM(node, prefix) { 
+		// 	console.log(prefix + node.nodeName);
+		// 	for(let i=0; i<node.childNodes.length; i++) {
+		// 		printDOM(node.childNodes[i], prefix + '\t'); 
+		// 	}
+  //   	}
+  //   	printDOM(document, '');
+		
+		/////////////////////////
+
+		// const para1 = document.getElementsByTagName('p')[1];
+		// console.log(para1.textContent)
+		// console.log(para1.innerHTML)
+
+		// const p1 = document.createElement('p');
+		// const p2 = document.createElement('p'); 
+		// p1.textContent = "I was created dynamically!"; 
+		// p2.textContent = "I was also created dynamically!";
+
+		// const parent = document.getElementById('content'); 
+		// const firstChild = parent.childNodes[0];
+
+		// parent.insertBefore(p1, firstChild); 
+		// parent.appendChild(p2);
+
+		/////////////////////////
+
+		function highlightParas(containing) { 
+			if(typeof containing === 'string')
+				containing = new RegExp(`\\b${containing}\\b`, 'i'); 
+			const paras = document.getElementsByTagName('p'); 
+			for(let p of paras) {
+				if(!containing.test(p.textContent)) continue;
+				p.classList.add('highlight');
+			}
+	    }
+
+		// highlightParas('unique'); // highlights all paragraphs
+		
+		/////////////////////////
+
+		function removeParaHighlights() {
+			const paras = document.querySelectorAll('p.highlight'); 
+			for(let p of paras) {
+				p.classList.remove('highlight'); 
+			}
 		}
 
-		console.log(document.readyState, " READY?");
+		// removeParaHighlights();
+		
+		/////////////////////////
 
-		var name = decodeURIComponent(window.location.search.substring(1)) || ""; 
-		console.log("Hello " + name);
+		// const highlightActions = document.querySelectorAll('[data-action="highlight"]');
+		// console.log(highlightActions)
+		// console.log(highlightActions[0].dataset)
+		// console.log(highlightActions[0].dataset.containing = "unique")
+		
+		/////////////////////////
+
+		const highlightActions = document.querySelectorAll('[data-action="highlight"]'); 
+		
+		for(let a of highlightActions) {
+			a.addEventListener('click', evt => { 
+				evt.preventDefault(); 
+				highlightParas(a.dataset.containing);
+			}); 
+		}
+
+		const removeHighlightActions = document.querySelectorAll('[data-action="removeHighlights"]');
+		
+		for(let a of removeHighlightActions) { 
+			a.addEventListener('click', evt => {
+				evt.preventDefault();
+            	removeParaHighlights();
+        	});
+		}
+		/*=====  End of Learning Javascript 3rd edition  ======*/
 
 	</script>
 </body>

@@ -102,24 +102,61 @@
 
 		/////////////////////////
 
-		const stuff =
-			'high: 9\n' + 
-			'medium: 5\n' + 
-			'low: 2\n';
-		const levels = stuff.match(/:\s*[0-9]/g);
-		console.log(levels)
+		// const stuff =
+		// 	'high: 9\n' + 
+		// 	'medium: 5\n' + 
+		// 	'low: 2\n';
+		// const levels = stuff.match(/:\s*[0-9]/g);
+		// console.log(levels)
 
 		/////////////////////////
 
-		const messyPhone = '(505) 555-1515';
-		const neatPhone = messyPhone.replace(/\D/g, '');
-		console.log(neatPhone, " ∆")
+		// const messyPhone = '(505) 555-1515';
+		// const neatPhone = messyPhone.replace(/\D/g, '');
+		// console.log(neatPhone, " ∆")
 		
 		/////////////////////////
 
-		const field=' something '; 
-		const valid = /\S/.test(field);
-		console.log(valid)
+		// const field=' something '; 
+		// const valid = /\S/.test(field);
+		// console.log(valid)
+		
+		/////////////////////////
+
+		// const input = "Address: 333 Main St., Anywhere, NY, 55532. Phone: 555-555-2525."; 
+		// const match = input.match(/\d{5}.*/);
+		// console.log(match)
+
+		// const equation = "(2 + 3.5) * 7";
+		// const match = equation.match(/\(\d \+ \d\.\d\) \* \d/);
+		// console.log(match, " ∆")
+
+		/////////////////////////
+
+		// const text = "Visit oreilly.com today!";
+		// const match = text.match(/[a-z]+(?:\.com|\.org|\.edu)/i);
+		// console.log(match, " ∆")
+
+		/////////////////////////
+
+		// const html = '<link rel="stylesheet" href="http://insecure.com/stuff.css">\n' + '<link rel="stylesheet" href="https://secure.com/securestuff.css">\n' + '<link rel="stylesheet" href="//anything.com/flexible.css">';
+
+		// const matches = html.match(/(?:https?)?\/\/[a-z][a-z0-9-]+[a-z0-9]+/ig);
+		// console.log(matches, " π")
+		
+		/////////////////////////
+
+		// const inputs = [ 
+		// 	"john@doe.com",
+		// 	"john@doe.com is my email", 
+		// 	"my email is john@doe.com", 
+		// 	"use john@doe.com, my email", 
+		// 	"my email:john@doe.com.",
+		// ];
+
+		// const emailMatcher = /\b[a-z][a-z0-9._-]*@[a-z][a-z0-9_-]+\.[a-z]+(?:\.[a-z]+)?\b/ig;
+		// inputs.map(s => s.replace(emailMatcher, '<a href="mailto:$&">$&</a>'));
+		// console.log(inputs, " ∆")
 
 		/*=====  End of Learning Javascript 3rd edition   ======*/
 		
